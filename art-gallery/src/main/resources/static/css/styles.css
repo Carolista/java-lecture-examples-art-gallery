@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, 'sans-serif';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: #B03A2E;
+    color: white;
+    height: 50px;
+    padding: 10px 30px;
+}
+
+#mag {
+    font-size: 30px;
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+main {
+    padding: 30px 100px;
+}
+
+a {
+    color: #B03A2E;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a.nav-link:link, a.nav-link:visited {
+    color: white;
+    font-weight: 400;
+}
+a.nav-link:hover, a.nav-link:active {
+    text-decoration: underline;
+}
