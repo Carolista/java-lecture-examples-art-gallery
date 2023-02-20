@@ -4,11 +4,11 @@
 <body>
     <header th:replace="~{fragments :: header}"></header>
     <main>
-        <h2>COLLECTION</h2>
+        <h3>COLLECTION</h3>
         <p th:unless="${collection} and ${collection.size()}">
             An empty collection is not much of a collection at all.
         </p>
-        <!-- NOTE: Don't put th:each on <ul> or you'll have multiple lists -->
+        <!-- TODO: Update the loop to display the title, artist, nationality, and time period -->
         <ul>
             <th:block th:each="artwork : ${collection}">
                 <li th:text="${artwork}"></li>

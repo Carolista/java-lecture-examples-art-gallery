@@ -6,15 +6,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @Controller
 @RequestMapping("/collection")
 public class CollectionController {
 
-    private static final ArrayList<String> artCollection = new ArrayList<>();
+    // TODO: Create an Artwork model to have the properties title, artist, nationality, and time period
+    // TODO: Create a data layer class to store a map of Artwork objects and handle CRUD ops
+    // TODO: Remove ArrayList below once no longer needed
+    private static final List<String> artCollection = new ArrayList<>();
 
-    // TODO: Convert this to use a template, collection.html
-    // TODO: Pass list, artCollection, to template
+    // TODO: Use method of data layer class to retrieve art collection
     // Corresponds to http://localhost:8080/collection
     @GetMapping("")
     public String displayCollectionPage(Model model) {
@@ -23,7 +26,6 @@ public class CollectionController {
         return "collection/index";
     }
 
-    // TODO: Convert this to use a template, add-art-form.html
     // Corresponds to http://localhost:8080/collection/add
     @GetMapping("/add")
     public String displayAddArtForm() {
@@ -31,9 +33,9 @@ public class CollectionController {
         return "collection/add-art-form";
     }
 
-    // TODO: Create a POST handler for /add
-    // Should add name of artwork to collection list
-    // Then should redirect to /collection
+    // TODO: Modify this to accommodate additional properties of object in Artwork model
+    // TODO: Make use of data layer class method to add artwork to art collection
+    // TODO: Later, modify again to use model binding
     @PostMapping("/add")
     public String processAddArtForm(@RequestParam String artwork) {
         System.out.println("\n*** POST request submitted to add " + artwork + " to collection");

@@ -4,8 +4,9 @@
 <body>
     <header th:replace="~{fragments :: header}"></header>
     <main>
+        <!-- TODO: Modify form to have fields for artwork title, artist, nationality, and time period -->
         <form action='/collection/add' method='POST'>
-            <p>Ooh! New art! What is it called?</p>
+            <h3>Add Artwork to Collection</h3>
             <input type='text' name='artwork' />
             <button type='submit'>Add to Collection</button>
         </form>
