@@ -10,12 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/collection")
 public class CollectionController {
 
-    // TODO: Create an Artwork model to have the properties title, artist, and time period
-    // Then update the List below to hold Artwork objects instead of strings
-    // TODO: Later, Create a data layer class to store a map of Artwork objects and handle CRUD ops
-    // Then remove ArrayList below once no longer needed
-
-    // TODO: Use method of data layer class to retrieve art collection
     // Corresponds to http://localhost:8080/collection
     @GetMapping("")
     public String displayCollectionPage(Model model) {
@@ -31,9 +25,6 @@ public class CollectionController {
         return "collection/add-art-form";
     }
 
-    // TODO: Modify this to accommodate additional properties of object in Artwork model
-    // TODO: Later, make use of data layer class method to add artwork to art collection
-    // TODO: Last, modify again to use model binding
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute Artwork artwork) {
         System.out.println("\n*** POST request submitted to add " + artwork.getTitle() + " to collection");
@@ -41,8 +32,6 @@ public class CollectionController {
         return "redirect:/collection";
     }
 
-    // TODO: Create a GET handler for /delete
-    // It should pass a list of Artwork objects to the delete-art-form template
     @GetMapping("/delete")
     public String displayDeleteArtForm(Model model) {
         System.out.println("\n*** GET request submitted for delete-art-form content");
@@ -50,7 +39,6 @@ public class CollectionController {
         return "collection/delete-art-form";
     }
 
-    // TODO: Create a POST handler for /delete
     @PostMapping("/delete")
     public String processDeleteArtForm(@RequestParam(required = false) int[] artworkIds) {
         for (int id : artworkIds) {
