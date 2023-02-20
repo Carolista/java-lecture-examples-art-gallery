@@ -11,10 +11,11 @@
         <!-- TODO: Update the loop to display the title, artist, nationality, and time period -->
         <ul>
             <th:block th:each="artwork : ${collection}">
-                <li th:text="${artwork.title + ' by ' + artwork.artist + ', ' + artwork.period}"></li>
+                <li th:text="${artwork.title + ' &mdash; ' + artwork.artist + ', ' + artwork.period}"></li>
             </th:block>
         </ul>
         <p><a href="/collection/add">Add</a> a work of art to the collection.</p>
+        <p th:if="${collection.size()}"><a href="/collection/delete">Delete</a> artwork from the collection.</p>
     </main>
 </body>
 </html>

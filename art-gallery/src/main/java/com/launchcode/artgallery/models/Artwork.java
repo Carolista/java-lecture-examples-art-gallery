@@ -49,7 +49,7 @@ public class Artwork {
 
     @Override
     public String toString() {
-        return title;
+        return title + " (" + artist + ", " + period + ")";
     }
 
     @Override
