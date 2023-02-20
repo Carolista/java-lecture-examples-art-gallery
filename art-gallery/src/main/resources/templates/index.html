@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+    <header th:replace="~{fragments :: header}"></header>
+    <main>
+        <h2 th:text="${title}"></h2>
+        <p>View our <a href='/collection'>collection</a> of fine art.</p>
+    </main>
+    <img th:src="@{/images/gallery2.png}" width="100%" />
+</body>
+</html>

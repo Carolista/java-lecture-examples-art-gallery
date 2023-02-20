@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Midtown Art Gallery</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+    <header th:fragment="header">
+        <div id="mag">Midtown Art Gallery</div>
+        <div id="nav">
+            <a class="nav-link" href="/">Home</a>
+            About
+            <a class="nav-link" href="/collection">Collection</a>
+            Contact
+        </div>
+    </header>
+</body>
+</html>

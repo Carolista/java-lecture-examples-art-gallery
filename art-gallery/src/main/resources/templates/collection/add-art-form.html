@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+    <header th:replace="~{fragments :: header}"></header>
+    <main>
+        <form action='/collection/add' method='POST'>
+            <p>Ooh! New art! What is it called?</p>
+            <input type='text' name='artwork' />
+            <button type='submit'>Add to Collection</button>
+        </form>
+    </main>
+</body>
+</html>
