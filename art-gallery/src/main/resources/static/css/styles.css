@@ -44,3 +44,12 @@ a.nav-link:link, a.nav-link:visited {
 a.nav-link:hover, a.nav-link:active {
     text-decoration: underline;
 }
+
+button {
+    color: white;
+    background-color: #B03A2E;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+}
