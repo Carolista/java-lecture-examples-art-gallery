@@ -8,13 +8,15 @@
         <p th:unless="${collection} and ${collection.size()}">
             An empty collection is not much of a collection at all.
         </p>
-        <!-- TODO: Update the loop to display the title, artist, nationality, and time period -->
+        <!-- TODO: Update the loop to display the title, artist, and time period -->
         <ul>
             <th:block th:each="artwork : ${collection}">
                 <li th:text="${artwork}"></li>
             </th:block>
         </ul>
         <p><a href="/collection/add">Add</a> a work of art to the collection.</p>
+        <!-- TODO: Once delete-art-form exists, add similar sentence with link for delete route -->
+        <!-- But only IF the collection exists and has art in it -->
     </main>
 </body>
 </html>
