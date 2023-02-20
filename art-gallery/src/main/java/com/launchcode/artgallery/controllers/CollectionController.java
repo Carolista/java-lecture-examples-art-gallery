@@ -6,10 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 @Controller
 @RequestMapping("/collection")
 public class CollectionController {
@@ -39,9 +35,9 @@ public class CollectionController {
     // TODO: Later, make use of data layer class method to add artwork to art collection
     // TODO: Last, modify again to use model binding
     @PostMapping("/add")
-    public String processAddArtForm(@RequestParam String title, String artist, String period) {
-        System.out.println("\n*** POST request submitted to add " + title + " to collection");
-        CollectionData.add(new Artwork(title, artist, period));
+    public String processAddArtForm(@ModelAttribute Artwork artwork) {
+        System.out.println("\n*** POST request submitted to add " + artwork.getTitle() + " to collection");
+        CollectionData.add(artwork);
         return "redirect:/collection";
     }
 
