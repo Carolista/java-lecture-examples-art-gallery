@@ -77,7 +77,7 @@ a.nav-link:hover, a.nav-link:active {
     margin-bottom: 12px;
 }
 
-input {
+input, select {
     max-width: 200px;
 }
 
