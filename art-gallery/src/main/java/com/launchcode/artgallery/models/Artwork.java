@@ -11,27 +11,28 @@ public class Artwork {
 
     private int id;
 
-    // TODO: Add rules to title and artist
-    // Use the message parameter to give the user meaningful feedback
-    // title should not be blank
-    // artist should be 2-30 characters long
-
+    @NotBlank(message = "Title is required.")
     private String title;
+
+    @Size(min = 2, max = 30, message = "Artist name must be 2-30 characters long.")
     private String artist;
+
     private String period;
 
-    // TODO: Add an Enum class for style, with values for several styles of art
-    // Then add the style field to this class and update the constructor
+    private Style style;
 
-    public Artwork(String title, String artist, String period) {
+    public Artwork() {
         this.id = nextId;
-        this.title = title;
-        this.artist = artist;
-        this.period = period;
         nextId++;
     }
 
-    // TODO: Add a no-arg constructor
+    public Artwork(String title, String artist, String period, Style style) {
+        this(); // add id and increment nextId
+        this.title = title;
+        this.artist = artist;
+        this.period = period;
+        this.style = style;
+    }
 
     public int getId() {
         return id;
@@ -59,6 +60,14 @@ public class Artwork {
 
     public void setPeriod(String period) {
         this.period = period;
+    }
+
+    public Style getStyle() {
+        return style;
+    }
+
+    public void setStyle(Style style) {
+        this.style = style;
     }
 
     @Override

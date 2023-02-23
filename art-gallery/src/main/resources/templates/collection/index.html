@@ -10,7 +10,10 @@
         </p>
         <ul>
             <th:block th:each="artwork : ${collection}">
-                <li th:text="${artwork.title + ' &mdash; ' + artwork.artist + ', ' + artwork.period}"></li>
+                <li th:text="${artwork.title + ' &mdash; ' +
+                    artwork.artist + ', ' +
+                    artwork.period + ' (' +
+                    artwork.style.displayName + ')'}"></li>
             </th:block>
         </ul>
         <p><a href="/collection/add">Add</a> a work of art to the collection.</p>
