@@ -1,8 +1,5 @@
 package com.launchcode.artgallery.models;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-
 import java.util.Objects;
 
 public class Artwork {
