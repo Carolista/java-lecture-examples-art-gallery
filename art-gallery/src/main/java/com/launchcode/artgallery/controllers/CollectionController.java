@@ -29,6 +29,7 @@ public class CollectionController {
 
     // TODO: Enable validation and handle validation errors
     // Be sure to pass the artwork object to the form for prefilling if there are errors
+    // TODO: For style select with enums, pass list of styles if sending user back to form
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute Artwork artwork) {
         System.out.println("\n*** POST request submitted to add " + artwork.getTitle() + " to collection");
