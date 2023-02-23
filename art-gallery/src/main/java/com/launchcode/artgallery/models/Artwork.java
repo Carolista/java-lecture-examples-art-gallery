@@ -1,12 +1,21 @@
 package com.launchcode.artgallery.models;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 import java.util.Objects;
 
 public class Artwork {
 
     private static int nextId = 1;
 
-    private final int id;
+    private int id;
+
+    // TODO: Add rules to title and artist
+    // Use the message parameter to give the user meaningful feedback
+    // title should not be blank
+    // artist should be 2-30 characters long
+
     private String title;
     private String artist;
     private String period;
@@ -18,6 +27,8 @@ public class Artwork {
         this.period = period;
         nextId++;
     }
+
+    // TODO: Add a no-arg constructor
 
     public int getId() {
         return id;

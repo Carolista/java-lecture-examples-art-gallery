@@ -6,7 +6,7 @@
     <main>
         <h3>COLLECTION</h3>
         <p th:unless="${collection} and ${collection.size()}">
-            An empty collection is not much of a collection at all.
+            No contents to display.
         </p>
         <ul>
             <th:block th:each="artwork : ${collection}">

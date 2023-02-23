@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, 'sans-serif';
+    font-family: 'Assistant', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,8 +16,16 @@ header {
     padding: 10px 30px;
 }
 
+h1, h2, h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 #mag {
+    font-family: 'Kodchasan', sans-serif;
     font-size: 30px;
+    font-weight: 200;
+    text-transform: uppercase;
 }
 
 #nav {
@@ -45,6 +53,17 @@ a.nav-link:hover, a.nav-link:active {
     text-decoration: underline;
 }
 
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+input {
+    max-width: 200px;
+}
+
 button {
     color: white;
     background-color: #B03A2E;
@@ -53,3 +72,15 @@ button {
     border: none;
     border-radius: 4px;
 }
+
+.error {
+    color: #B03A2E;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.all-errors {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+

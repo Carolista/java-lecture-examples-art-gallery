@@ -2,8 +2,10 @@ package com.launchcode.artgallery.controllers;
 
 import com.launchcode.artgallery.data.CollectionData;
 import com.launchcode.artgallery.models.Artwork;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -18,6 +20,7 @@ public class CollectionController {
         return "collection/index";
     }
 
+    // TODO: Pass an empty artwork object to the template for binding with th:field and th:errors
     // Corresponds to http://localhost:8080/collection/add
     @GetMapping("/add")
     public String displayAddArtForm() {
@@ -25,6 +28,7 @@ public class CollectionController {
         return "collection/add-art-form";
     }
 
+    // TODO: Enable validation and handle validation errors
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute Artwork artwork) {
         System.out.println("\n*** POST request submitted to add " + artwork.getTitle() + " to collection");

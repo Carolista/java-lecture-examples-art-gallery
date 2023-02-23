@@ -6,9 +6,23 @@
     <main>
         <form action='/collection/add' method='POST'>
             <h3>Add Artwork to Collection</h3>
-            <label>Title <input type="text" name="title" /></label>
-            <label>Artist <input type="text" name="artist" /></label>
-            <label>Period <input type="text" name="period" /></label>
+
+            <!-- TODO: Once the Errors object is available, display a general message if there are errors -->
+
+            <!-- TODO: Use th:field to bind to the artwork object and its fields -->
+            <!-- TODO: Add error message elements below the inputs for title and artist using th:errors -->
+            <div class="form-item">
+                <label for="title">Title</label>
+                <input id="title" type="text" name="title" />
+            </div>
+            <div class="form-item">
+                <label for="artist">Artist</label>
+                <input id="artist" type="text" name="artist" />
+            </div>
+            <div class="form-item">
+                <label for="period">Period</label>
+                <input id="period" type="text" name="period" />
+            </div>
             <button type='submit'>Add</button>
         </form>
     </main>
@@ -18,11 +32,10 @@
 <!--
 
     TEST DATA:
-    Mona Lisa, Leonardo da Vinci, 1503-1506
-    Girl with a Pearl Earring, Johannes Vermeer, 1665
-    The Starry Night, Vincent van Gogh, 1889
-    The Kiss, Gustav Klimt, 1908
-    The Persistence of Memory, Salvador Dali, 1931
-    Water Lilies, Claude Monet, 1919
+    Mona Lisa, Leonardo da Vinci, 1503-1506, Renaissance
+    Girl with a Pearl Earring, Johannes Vermeer, 1665, Baroque
+    The Starry Night, Vincent van Gogh, 1889, Pointillism
+    The Kiss, Gustav Klimt, 1908, Art Nouveau
+    Water Lilies, Claude Monet, 1919, Impressionism
 
 -->
