@@ -10,6 +10,7 @@
         </p>
         <ul>
             <th:block th:each="artwork : ${collection}">
+                <!-- TODO: add style in parentheses once it is being collected from user -->
                 <li th:text="${artwork.title + ' &mdash; ' + artwork.artist + ', ' + artwork.period}"></li>
             </th:block>
         </ul>

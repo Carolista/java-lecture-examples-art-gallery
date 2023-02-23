@@ -30,6 +30,7 @@ public class CollectionController {
     }
 
     // TODO: Enable validation and handle validation errors
+    // Be sure to pass the artwork object to the form for prefilling if there are errors
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute Artwork artwork) {
         System.out.println("\n*** POST request submitted to add " + artwork.getTitle() + " to collection");
@@ -37,6 +38,7 @@ public class CollectionController {
         return "redirect:/collection";
     }
 
+    // Corresponds to http://localhost:8080/collection/delete
     @GetMapping("/delete")
     public String displayDeleteArtForm(Model model) {
         System.out.println("\n*** GET request submitted for delete-art-form content");

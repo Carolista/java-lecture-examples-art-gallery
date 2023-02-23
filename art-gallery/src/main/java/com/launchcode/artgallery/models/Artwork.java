@@ -23,6 +23,10 @@ public class Artwork {
     // TODO: Add an Enum class for style, with values for several styles of art
     // Then add the style field to this class and update the constructor
 
+    // TODO: For binding to th:field and th:errors, add a no-arg constructor
+    // Move the id-related items from the other constructor
+    // Then call this constructor from the other constructor with this()
+
     public Artwork(String title, String artist, String period) {
         this.id = nextId;
         this.title = title;
@@ -30,8 +34,6 @@ public class Artwork {
         this.period = period;
         nextId++;
     }
-
-    // TODO: Add a no-arg constructor
 
     public int getId() {
         return id;
