@@ -20,6 +20,9 @@ public class Artwork {
     private String artist;
     private String period;
 
+    // TODO: Add an Enum class for style, with values for several styles of art
+    // Then add the style field to this class and update the constructor
+
     public Artwork(String title, String artist, String period) {
         this.id = nextId;
         this.title = title;

@@ -21,6 +21,7 @@ public class CollectionController {
     }
 
     // TODO: Pass an empty artwork object to the template for binding with th:field and th:errors
+    // TODO: Pass a list of styles to the template once the enum exists
     // Corresponds to http://localhost:8080/collection/add
     @GetMapping("/add")
     public String displayAddArtForm() {

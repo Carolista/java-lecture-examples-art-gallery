@@ -4,9 +4,9 @@
 <body>
     <header th:replace="~{fragments :: header}"></header>
     <main>
-        <h3>COLLECTION</h3>
+        <h2>COLLECTION</h2>
         <p th:unless="${collection} and ${collection.size()}">
-            No contents to display.
+            <em>No contents to display.</em>
         </p>
         <ul>
             <th:block th:each="artwork : ${collection}">
