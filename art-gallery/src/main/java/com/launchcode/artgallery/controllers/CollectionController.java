@@ -35,6 +35,7 @@ public class CollectionController {
         System.out.println("\n*** POST request submitted to add " + artwork.getTitle() + " to collection");
         if (errors.hasErrors()) {
             model.addAttribute("artwork", artwork);
+            model.addAttribute("styles", Style.values());
             return "collection/add-art-form";
         } else {
             CollectionData.add(artwork);
