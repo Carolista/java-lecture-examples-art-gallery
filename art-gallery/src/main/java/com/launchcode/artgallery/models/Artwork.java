@@ -1,14 +1,20 @@
 package com.launchcode.artgallery.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
+// TODO: Convert model to an Entity (persistent class)
+@Entity
 public class Artwork {
 
-    private static int nextId = 1;
-
+    // TODO: Add annotations so Hibernate knows to generate id as a primary key
+    @Id
+    @GeneratedValue
     private int id;
 
     @NotBlank(message = "Title is required.")
@@ -17,20 +23,17 @@ public class Artwork {
     @Size(min = 2, max = 30, message = "Artist name must be 2-30 characters long.")
     private String artist;
 
-    private String period;
+    private String yearCreated;
 
     private Style style;
 
-    public Artwork() {
-        this.id = nextId;
-        nextId++;
-    }
+    // TODO: Remove nextId & id related code from constructors
+    public Artwork() {}
 
-    public Artwork(String title, String artist, String period, Style style) {
-        this(); // add id and increment nextId
+    public Artwork(String title, String artist, String yearCreated, Style style) {
         this.title = title;
         this.artist = artist;
-        this.period = period;
+        this.yearCreated = yearCreated;
         this.style = style;
     }
 
@@ -54,12 +57,12 @@ public class Artwork {
         this.artist = artist;
     }
 
-    public String getPeriod() {
-        return period;
+    public String getYearCreated() {
+        return yearCreated;
     }
 
-    public void setPeriod(String period) {
-        this.period = period;
+    public void setYearCreated(String yearCreated) {
+        this.yearCreated = yearCreated;
     }
 
     public Style getStyle() {
@@ -72,7 +75,7 @@ public class Artwork {
 
     @Override
     public String toString() {
-        return title + " (" + artist + ", " + period + ")";
+        return title + " (" + artist + ", " + yearCreated + ")";
     }
 
     @Override

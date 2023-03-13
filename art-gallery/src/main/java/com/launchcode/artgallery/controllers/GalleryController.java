@@ -9,9 +9,8 @@ public class GalleryController {
 
     // Corresponds to http://localhost:8080
     @GetMapping("/")
-    public String displayHomePage(Model model) {
+    public String displayHomePage() {
         System.out.println("\n*** Home page content requested by browser");
-        model.addAttribute("title", "Welcome");
         return "index";
     }
 

@@ -2,11 +2,14 @@ package com.launchcode.artgallery.models;
 
 public enum Style {
 
-    ART_NOUVEAU("Art Nouveau"),
-    BAROQUE("Baroque"),
-    IMPRESSIONISM("Impressionism"),
-    POINTILLISM("Pointillism"),
-    RENAISSANCE("Renaissance");
+    ARCHITECTURAL_SCULPTURE("Architectural Sculpture"),
+    ABSTRACT("Abstract Photography"),
+    ASTROPHOTOGRAPHY("Astrophotography"),
+    DIGITAL_ILLUSTRATION("Digital Illustration"),
+    INK_ILLUSTRATION("Ink Illustration"),
+    LANDSCAPE_PHOTOGRAPHY("Landscape Photography"),
+    MAXIMALIST_PHOTOGRAPHY("Maximalist Photography"),
+    REALISM("Realism");
 
     private final String displayName;
 

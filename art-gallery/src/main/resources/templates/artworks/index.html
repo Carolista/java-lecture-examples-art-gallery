@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+    <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/artworks/add">Add Art</a>
+            <a class="navlink" href="/artworks/delete">Delete Art</a>
+        </div>
+    </div>
+    <main>
+        <h2>ARTWORKS</h2>
+        <p th:unless="${artworks} and ${artworks.size()}">
+            <em>No contents to display.</em>
+        </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Year Created</th>
+                    <th>Style</th>
+                </tr>
+            </thead>
+            <tr th:each="artwork : ${artworks}">
+                <td th:text="${artwork.id}"></td>
+                <td th:text="${artwork.title}"></td>
+                <td th:text="${artwork.artist}"></td>
+                <td th:text="${artwork.yearCreated}"></td>
+                <td th:text="${artwork.style.displayName}"></td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>

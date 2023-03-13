@@ -3,8 +3,14 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
     <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/artworks">View List of Artworks</a>
+            <a class="navlink" href="/artworks/delete">Delete Art</a>
+        </div>
+    </div>
     <main>
-        <form action='/collection/add' method='POST'>
+        <form action='/artworks/add' method='POST'>
             <h3>Add Artwork to Collection</h3>
 
             <div class="form-item">
@@ -18,8 +24,8 @@
                 <p class="error" th:errors="${artwork.artist}"></p>
             </div>
             <div class="form-item">
-                <label for="period">Period</label>
-                <input th:field="${artwork.period}" />
+                <label for="yearCreated">Year Created</label>
+                <input th:field="${artwork.yearCreated}" />
             </div>
             <div class="form-item">
                 <label for="style">Style</label>

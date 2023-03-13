@@ -4,24 +4,24 @@ import com.launchcode.artgallery.models.Artwork;
 
 import java.util.*;
 
-public class CollectionData {
+public class ArtworkData {
 
-    private static final Map<Integer, Artwork> artCollection = new HashMap<>();
+    private static final Map<Integer, Artwork> artworks = new HashMap<>();
 
     public static void add(Artwork artwork) {
-        artCollection.put(artwork.getId(), artwork);
+        artworks.put(artwork.getId(), artwork);
     }
 
     public static Artwork findById(int id) {
-        return artCollection.get(id);
+        return artworks.get(id);
     }
 
     public static Collection<Artwork> getAll() {
-        return artCollection.values();
+        return artworks.values();
     }
 
     public static void remove(int id) {
-        artCollection.remove(id);
+        artworks.remove(id);
     }
 
 }
