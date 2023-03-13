@@ -1,21 +1,16 @@
 package com.launchcode.artgallery.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
 // TODO: Convert model to an Entity (persistent class)
-@Entity
 public class Artwork {
 
     // TODO: Add annotations so Hibernate knows to generate id as a primary key
-    @Id
-    @GeneratedValue
     private int id;
+    private static int nextId;
 
     @NotBlank(message = "Title is required.")
     private String title;
@@ -28,9 +23,13 @@ public class Artwork {
     private Style style;
 
     // TODO: Remove nextId & id related code from constructors
-    public Artwork() {}
+    public Artwork() {
+        this.id = nextId;
+        nextId++;
+    }
 
     public Artwork(String title, String artist, String yearCreated, Style style) {
+        this();
         this.title = title;
         this.artist = artist;
         this.yearCreated = yearCreated;

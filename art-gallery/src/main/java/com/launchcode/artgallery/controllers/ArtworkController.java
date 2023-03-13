@@ -1,10 +1,9 @@
 package com.launchcode.artgallery.controllers;
 
-import com.launchcode.artgallery.data.ArtworkRepository;
+import com.launchcode.artgallery.data.ArtworkData;
 import com.launchcode.artgallery.models.Artwork;
 import com.launchcode.artgallery.models.Style;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -14,15 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/artworks")
 public class ArtworkController {
 
-    // TODO: Replace data layer with repository
-    @Autowired
-    private ArtworkRepository artworkRepository;
+    // TODO: Replace data layer with repository and replace CRUD methods in handlers
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
     public String displayArtworksPage(Model model) {
         System.out.println("\n*** Artworks page content requested");
-        model.addAttribute("artworks", artworkRepository.findAll());
+        model.addAttribute("artworks", ArtworkData.getAll());
         return "artworks/index";
     }
 
@@ -42,7 +39,7 @@ public class ArtworkController {
             model.addAttribute("styles", Style.values());
             return "artworks/add-art-form";
         } else {
-            artworkRepository.save(artwork);
+            ArtworkData.add(artwork);
             return "redirect:/artworks";
         }
     }
@@ -51,14 +48,14 @@ public class ArtworkController {
     @GetMapping("/delete")
     public String displayDeleteArtForm(Model model) {
         System.out.println("\n*** GET request submitted for delete-art-form content");
-        model.addAttribute("artworks", artworkRepository.findAll());
+        model.addAttribute("artworks", ArtworkData.getAll());
         return "artworks/delete-art-form";
     }
 
     @PostMapping("/delete")
     public String processDeleteArtForm(@RequestParam(required = false) int[] artworkIds) {
         for (int id : artworkIds) {
-            artworkRepository.deleteById(id);
+            ArtworkData.remove(id);
         }
         return "redirect:/artworks";
     }
