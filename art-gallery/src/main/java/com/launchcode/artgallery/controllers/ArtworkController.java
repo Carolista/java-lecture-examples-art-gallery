@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class ArtworkController {
 
     // TODO: Replace data layer with repository and replace CRUD methods in handlers
+    // TODO: Delete old temporary data layer class, ArtworkData
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
