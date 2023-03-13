@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/artworks")
 public class ArtworkController {
 
-    // TODO: Replace data layer with repository
     @Autowired
     private ArtworkRepository artworkRepository;
 

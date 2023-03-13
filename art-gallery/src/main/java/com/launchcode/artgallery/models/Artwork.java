@@ -8,11 +8,9 @@ import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
-// TODO: Convert model to an Entity (persistent class)
 @Entity
 public class Artwork {
 
-    // TODO: Add annotations so Hibernate knows to generate id as a primary key
     @Id
     @GeneratedValue
     private int id;
@@ -27,7 +25,6 @@ public class Artwork {
 
     private Style style;
 
-    // TODO: Remove nextId & id related code from constructors
     public Artwork() {}
 
     public Artwork(String title, String artist, String yearCreated, Style style) {
