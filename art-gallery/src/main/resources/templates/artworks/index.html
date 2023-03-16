@@ -21,7 +21,9 @@
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Year Created</th>
+                    <th>Media</th>
                     <th>Style</th>
+                    <th>Image</th>
                 </tr>
             </thead>
             <tr th:each="artwork : ${artworks}">
@@ -29,7 +31,13 @@
                 <td th:text="${artwork.title}"></td>
                 <td th:text="${artwork.artist}"></td>
                 <td th:text="${artwork.yearCreated}"></td>
+                <td th:text="${artwork.media}"></td>
                 <td th:text="${artwork.style.displayName}"></td>
+                <td>
+                    <a th:href="${artwork.imageURL}" target="_blank">
+                        <img th:src="${artwork.imageURL}" width="50px" />
+                    </a>
+                </td>
             </tr>
         </table>
     </main>

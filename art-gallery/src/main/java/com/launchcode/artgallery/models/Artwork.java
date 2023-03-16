@@ -15,15 +15,21 @@ public class Artwork extends AbstractEntity {
 
     private String yearCreated;
 
+    private String media;
+
     private Style style;
+
+    private String imageURL;
 
     public Artwork() {}
 
-    public Artwork(String title, String artist, String yearCreated, Style style) {
+    public Artwork(String title, String artist, String yearCreated, String media, Style style, String imageURL) {
         this.title = title;
         this.artist = artist;
         this.yearCreated = yearCreated;
+        this.media = media;
         this.style = style;
+        this.imageURL = imageURL;
     }
 
     public String getTitle() {
@@ -50,12 +56,28 @@ public class Artwork extends AbstractEntity {
         this.yearCreated = yearCreated;
     }
 
+    public String getMedia() {
+        return media;
+    }
+
+    public void setMedia(String media) {
+        this.media = media;
+    }
+
     public Style getStyle() {
         return style;
     }
 
     public void setStyle(Style style) {
         this.style = style;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     @Override

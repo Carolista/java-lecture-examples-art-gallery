@@ -24,6 +24,10 @@
                 <p class="error" th:errors="${artwork.artist}"></p>
             </div>
             <div class="form-item">
+                <label for="media">Media</label>
+                <input th:field="${artwork.media}" />
+            </div>
+            <div class="form-item">
                 <label for="yearCreated">Year Created</label>
                 <input th:field="${artwork.yearCreated}" />
             </div>
@@ -35,6 +39,10 @@
                             th:text="${style.displayName}"
                     ></option>
                 </select>
+            </div>
+            <div class="form-item">
+                <label for="imageURL">Image URL</label>
+                <input th:field="${artwork.imageURL}" />
             </div>
             <button type='submit'>Add</button>
         </form>
