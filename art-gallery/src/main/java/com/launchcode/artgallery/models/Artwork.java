@@ -44,11 +44,11 @@ public class Artwork extends AbstractEntity {
         this.title = title;
     }
 
-    // TODO #1: Remove getter and setter for artist
     public String getArtist() {
         return artist;
     }
 
+    // TODO #1: Update with Artist type
     public void setArtist(String artist) {
         this.artist = artist;
     }
