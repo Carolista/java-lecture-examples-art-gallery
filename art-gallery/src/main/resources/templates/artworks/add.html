@@ -18,11 +18,15 @@
                 <input th:field="${artwork.title}" />
                 <p class="error" th:errors="${artwork.title}"></p>
             </div>
-            <!-- TODO: Change this input to a select with the artists' names (implicit toString()) -->
             <div class="form-item">
                 <label for="artist">Artist</label>
-                <input th:field="${artwork.artist}" />
-                <p class="error" th:errors="${artwork.artist}"></p>
+                <select th:field="${artwork.artist}">
+                    <!-- th: text will use implicit toString() to get full name -->
+                    <option th:each="artist : ${artists}"
+                            th:value="${artist.id}"
+                            th:text="${artist}"
+                    ></option>
+                </select>
             </div>
             <div class="form-item">
                 <label for="media">Media</label>

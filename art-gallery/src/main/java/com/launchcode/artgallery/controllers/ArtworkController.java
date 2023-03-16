@@ -1,5 +1,6 @@
 package com.launchcode.artgallery.controllers;
 
+import com.launchcode.artgallery.data.ArtistRepository;
 import com.launchcode.artgallery.data.ArtworkRepository;
 import com.launchcode.artgallery.models.Artwork;
 import com.launchcode.artgallery.models.Style;
@@ -17,7 +18,8 @@ public class ArtworkController {
     @Autowired
     private ArtworkRepository artworkRepository;
 
-    // TODO #1: Create instance of artistRepository
+    @Autowired
+    private ArtistRepository artistRepository;
 
     // TODO #2: Update handler to accept an optional query param, artistId, using Integer type
     // Corresponds to http://localhost:8080/artworks
@@ -34,7 +36,7 @@ public class ArtworkController {
     @GetMapping("/add")
     public String displayAddArtForm(Model model) {
         model.addAttribute("artwork", new Artwork());
-        // TODO #1: Pass list of artists to view for select input
+        model.addAttribute("artists", artistRepository.findAll());
         model.addAttribute("styles", Style.values());
         return "artworks/add";
     }

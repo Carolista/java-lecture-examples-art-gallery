@@ -1,6 +1,7 @@
 package com.launchcode.artgallery.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -10,11 +11,9 @@ public class Artwork extends AbstractEntity {
     @NotBlank(message = "Title is required.")
     private String title;
 
-    // TODO #1: Change this to associate the Artist class
-    // TODO #1: Remove @Size and add @ManyToOne to establish the relationship
     // TODO #1: Truncate table in database before re-starting app in IntelliJ
-    @Size(min = 2, max = 30, message = "Artist name must be 2-30 characters long.")
-    private String artist;
+    @ManyToOne
+    private Artist artist;
 
     private String yearCreated;
 
@@ -26,8 +25,7 @@ public class Artwork extends AbstractEntity {
 
     public Artwork() {}
 
-    // TODO #1: update constructor with change to artist field
-    public Artwork(String title, String artist, String yearCreated, String media, Style style, String imageURL) {
+    public Artwork(String title, Artist artist, String yearCreated, String media, Style style, String imageURL) {
         this.title = title;
         this.artist = artist;
         this.yearCreated = yearCreated;
@@ -44,12 +42,11 @@ public class Artwork extends AbstractEntity {
         this.title = title;
     }
 
-    // TODO #1: Remove getter and setter for artist
-    public String getArtist() {
+    public Artist getArtist() {
         return artist;
     }
 
-    public void setArtist(String artist) {
+    public void setArtist(Artist artist) {
         this.artist = artist;
     }
 
