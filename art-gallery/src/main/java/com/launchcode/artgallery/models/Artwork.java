@@ -22,18 +22,18 @@ public class Artwork extends AbstractEntity {
 
     private Style style;
 
-    private String imageURL;
+    private String imageId;
 
     public Artwork() {}
 
     // TODO #1: update constructor with change to artist field
-    public Artwork(String title, String artist, String yearCreated, String media, Style style, String imageURL) {
+    public Artwork(String title, String artist, String yearCreated, String media, Style style, String imageId) {
         this.title = title;
         this.artist = artist;
         this.yearCreated = yearCreated;
         this.media = media;
         this.style = style;
-        this.imageURL = imageURL;
+        this.imageId = imageId;
     }
 
     public String getTitle() {
@@ -77,12 +77,12 @@ public class Artwork extends AbstractEntity {
         this.style = style;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImageId() {
+        return imageId;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 
     @Override
