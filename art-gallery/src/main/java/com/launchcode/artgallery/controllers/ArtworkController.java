@@ -17,9 +17,15 @@ public class ArtworkController {
     @Autowired
     private ArtworkRepository artworkRepository;
 
+    // TODO #1: Create instance of artistRepository
+
+    // TODO #2: Update handler to accept an optional query param, artistId, using Integer type
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
     public String displayArtworksPage(Model model) {
+        // TODO #2: Add logic to determine which list of artworks to send
+        //  depending on whether artistId has been specified or not
+        // TODO #2: Make sure to unbox the data from the Optional result if present
         model.addAttribute("artworks", artworkRepository.findAll());
         return "artworks/index";
     }
@@ -28,6 +34,7 @@ public class ArtworkController {
     @GetMapping("/add")
     public String displayAddArtForm(Model model) {
         model.addAttribute("artwork", new Artwork());
+        // TODO #1: Pass list of artists to view for select input
         model.addAttribute("styles", Style.values());
         return "artworks/add";
     }

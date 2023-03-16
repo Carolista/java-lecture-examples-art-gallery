@@ -10,6 +10,9 @@ public class Artwork extends AbstractEntity {
     @NotBlank(message = "Title is required.")
     private String title;
 
+    // TODO #1: Change this to associate the Artist class
+    // TODO #1: Remove @Size and add @ManyToOne to establish the relationship
+    // TODO #1: Truncate table in database before re-starting app in IntelliJ
     @Size(min = 2, max = 30, message = "Artist name must be 2-30 characters long.")
     private String artist;
 
@@ -23,6 +26,7 @@ public class Artwork extends AbstractEntity {
 
     public Artwork() {}
 
+    // TODO #1: update constructor with change to artist field
     public Artwork(String title, String artist, String yearCreated, String media, Style style, String imageURL) {
         this.title = title;
         this.artist = artist;
@@ -40,6 +44,7 @@ public class Artwork extends AbstractEntity {
         this.title = title;
     }
 
+    // TODO #1: Remove getter and setter for artist
     public String getArtist() {
         return artist;
     }

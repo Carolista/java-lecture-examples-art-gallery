@@ -14,6 +14,9 @@ public class Artist extends AbstractEntity {
 
     private String location;
 
+    // TODO #2: Add list of artists as a field
+    // TODO #2: Use the annotation @OneToMany and set mappedBy to the related field in Artwork
+
     public Artist() {}
 
     public Artist(String firstName, String lastName, String location) {
