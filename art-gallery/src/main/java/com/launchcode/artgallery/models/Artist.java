@@ -49,6 +49,8 @@ public class Artist extends AbstractEntity {
         this.location = location;
     }
 
+    // TODO #2: Add getter (but not setter) for list of artists
+
     @Override
     public String toString() {
         return firstName + ' ' + lastName;
