@@ -19,7 +19,7 @@ public class Artist extends AbstractEntity {
     private String location;
 
     @OneToMany(mappedBy="artist")
-    private List<Artwork> artworks = new ArrayList<>();
+    private final List<Artwork> artworks = new ArrayList<>();
 
     public Artist() {}
 
