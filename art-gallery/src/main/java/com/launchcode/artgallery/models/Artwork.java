@@ -1,19 +1,11 @@
 package com.launchcode.artgallery.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-import java.util.Objects;
-
 @Entity
-public class Artwork {
-
-    @Id
-    @GeneratedValue
-    private int id;
+public class Artwork extends AbstractEntity {
 
     @NotBlank(message = "Title is required.")
     private String title;
@@ -32,10 +24,6 @@ public class Artwork {
         this.artist = artist;
         this.yearCreated = yearCreated;
         this.style = style;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getTitle() {
@@ -75,17 +63,4 @@ public class Artwork {
         return title + " (" + artist + ", " + yearCreated + ")";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Artwork artwork = (Artwork) o;
-        return id == artwork.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
