@@ -3,7 +3,6 @@ package com.launchcode.artgallery.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
 public class Artwork extends AbstractEntity {
