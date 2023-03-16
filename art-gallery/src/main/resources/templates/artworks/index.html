@@ -34,8 +34,8 @@
                 <td th:text="${artwork.media}"></td>
                 <td th:text="${artwork.style.displayName}"></td>
                 <td>
-                    <a th:href="${artwork.imageURL}" target="_blank">
-                        <img th:src="${artwork.imageURL}" width="50px" />
+                    <a th:href="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" target="_blank">
+                        <img th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" width="50px" />
                     </a>
                 </td>
             </tr>
