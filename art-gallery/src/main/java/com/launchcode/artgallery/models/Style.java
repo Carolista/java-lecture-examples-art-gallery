@@ -10,6 +10,7 @@ public enum Style {
     LANDSCAPE_PHOTOGRAPHY("Landscape Photography"),
     MAXIMALIST_PHOTOGRAPHY("Maximalist Photography"),
     PENCIL_ILLUSTRATION("Pencil Illustration"),
+    PHOTOREALISM("Photorealism"),
     REALISM("Realism");
 
     private final String displayName;
