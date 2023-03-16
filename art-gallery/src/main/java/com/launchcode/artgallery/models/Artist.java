@@ -1,7 +1,11 @@
 package com.launchcode.artgallery.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Artist extends AbstractEntity {
@@ -14,8 +18,8 @@ public class Artist extends AbstractEntity {
 
     private String location;
 
-    // TODO #2: Add list of artists as a field
-    // TODO #2: Use the annotation @OneToMany and set mappedBy to the related field in Artwork
+    @OneToMany(mappedBy="artist")
+    private List<Artwork> artworks = new ArrayList<>();
 
     public Artist() {}
 
@@ -47,6 +51,10 @@ public class Artist extends AbstractEntity {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public List<Artwork> getArtworks() {
+        return artworks;
     }
 
     @Override

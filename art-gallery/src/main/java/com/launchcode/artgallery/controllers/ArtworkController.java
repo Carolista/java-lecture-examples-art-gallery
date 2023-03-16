@@ -2,6 +2,7 @@ package com.launchcode.artgallery.controllers;
 
 import com.launchcode.artgallery.data.ArtistRepository;
 import com.launchcode.artgallery.data.ArtworkRepository;
+import com.launchcode.artgallery.models.Artist;
 import com.launchcode.artgallery.models.Artwork;
 import com.launchcode.artgallery.models.Style;
 import jakarta.validation.Valid;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/artworks")
@@ -21,14 +24,18 @@ public class ArtworkController {
     @Autowired
     private ArtistRepository artistRepository;
 
-    // TODO #2: Update handler to accept an optional query param, artistId, using Integer type
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String displayArtworksPage(Model model) {
-        // TODO #2: Add logic to determine which list of artworks to send
-        //  depending on whether artistId has been specified or not
-        // TODO #2: Make sure to unbox the data from the Optional result if present
-        model.addAttribute("artworks", artworkRepository.findAll());
+    public String displayArtworksPage(@RequestParam(required = false) Integer artistId, Model model) {
+        if (artistId != null) {
+            Optional<Artist> result = artistRepository.findById(artistId);
+            if (result.isPresent()) {
+                Artist artist = result.get();
+                model.addAttribute("artworks", artist.getArtworks());
+            }
+        } else {
+            model.addAttribute("artworks", artworkRepository.findAll());
+        }
         return "artworks/index";
     }
 

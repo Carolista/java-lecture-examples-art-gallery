@@ -11,7 +11,6 @@ public class Artwork extends AbstractEntity {
     @NotBlank(message = "Title is required.")
     private String title;
 
-    // TODO #1: Truncate table in database before re-starting app in IntelliJ
     @ManyToOne
     private Artist artist;
 
