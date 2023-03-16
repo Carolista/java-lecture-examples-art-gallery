@@ -9,6 +9,7 @@ public enum Style {
     INK_ILLUSTRATION("Ink Illustration"),
     LANDSCAPE_PHOTOGRAPHY("Landscape Photography"),
     MAXIMALIST_PHOTOGRAPHY("Maximalist Photography"),
+    PENCIL_ILLUSTRATION("Pencil Illustration"),
     REALISM("Realism");
 
     private final String displayName;

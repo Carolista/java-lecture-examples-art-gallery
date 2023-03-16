@@ -20,7 +20,6 @@ public class ArtworkController {
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
     public String displayArtworksPage(Model model) {
-        System.out.println("\n*** Artworks page content requested");
         model.addAttribute("artworks", artworkRepository.findAll());
         return "artworks/index";
     }
@@ -28,18 +27,16 @@ public class ArtworkController {
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
     public String displayAddArtForm(Model model) {
-        System.out.println("\n*** GET request submitted for add-art-form content");
         model.addAttribute("artwork", new Artwork());
         model.addAttribute("styles", Style.values());
-        return "artworks/add-art-form";
+        return "artworks/add";
     }
 
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute @Valid Artwork artwork, Errors errors, Model model) {
-        System.out.println("\n*** POST request submitted to add " + artwork.getTitle() + " to art collection");
         if (errors.hasErrors()) {
             model.addAttribute("styles", Style.values());
-            return "artworks/add-art-form";
+            return "artworks/add";
         } else {
             artworkRepository.save(artwork);
             return "redirect:/artworks";
@@ -49,9 +46,8 @@ public class ArtworkController {
     // Corresponds to http://localhost:8080/artworks/delete
     @GetMapping("/delete")
     public String displayDeleteArtForm(Model model) {
-        System.out.println("\n*** GET request submitted for delete-art-form content");
         model.addAttribute("artworks", artworkRepository.findAll());
-        return "artworks/delete-art-form";
+        return "artworks/delete";
     }
 
     @PostMapping("/delete")

@@ -10,7 +10,6 @@ public class GalleryController {
     // Corresponds to http://localhost:8080
     @GetMapping("/")
     public String displayHomePage() {
-        System.out.println("\n*** Home page content requested by browser");
         return "index";
     }
 

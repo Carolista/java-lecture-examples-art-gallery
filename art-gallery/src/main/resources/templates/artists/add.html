@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<div id="admin-bar">
+    <div class="nav">
+        <a class="navlink" href="/artists">View List of Artists</a>
+        <a class="navlink" href="/artists/delete">Delete Artist</a>
+    </div>
+</div>
+<main>
+    <form action='/artists/add' method='POST'>
+        <h3>Add Artist</h3>
+
+        <div class="form-item">
+            <label for="firstName">First Name</label>
+            <input th:field="${artist.firstName}" />
+            <p class="error" th:errors="${artist.firstName}"></p>
+        </div>
+        <div class="form-item">
+            <label for="lastName">Last Name</label>
+            <input th:field="${artist.lastName}" />
+            <p class="error" th:errors="${artist.lastName}"></p>
+        </div>
+        <div class="form-item">
+            <label for="location">Location</label>
+            <input th:field="${artist.location}" />
+        </div>
+        <button type='submit'>Add</button>
+    </form>
+</main>
+</body>
+</html>
