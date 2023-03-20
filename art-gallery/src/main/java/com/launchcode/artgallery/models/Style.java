@@ -15,7 +15,7 @@ public class Style extends AbstractEntity {
     private String name;
 
     @ManyToMany(mappedBy = "styles")
-    private List<Artwork> artworks = new ArrayList<>();
+    private final List<Artwork> artworks = new ArrayList<>();
 
     public Style() {}
 
