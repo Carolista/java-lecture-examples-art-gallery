@@ -3,9 +3,7 @@ package com.launchcode.artgallery.controllers;
 import com.launchcode.artgallery.data.ArtistRepository;
 import com.launchcode.artgallery.data.ArtworkRepository;
 import com.launchcode.artgallery.data.StyleRepository;
-import com.launchcode.artgallery.models.Artist;
-import com.launchcode.artgallery.models.Artwork;
-import com.launchcode.artgallery.models.Style;
+import com.launchcode.artgallery.models.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -59,17 +59,25 @@ public class ArtworkController {
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
     public String displayAddArtForm(Model model) {
+        List<Artist> artists = (List<Artist>) artistRepository.findAll();
+        Collections.sort(artists, new ArtistComparator());
+        List<Style> styles = (List<Style>) styleRepository.findAll();
+        Collections.sort(styles, new StyleComparator());
         model.addAttribute("artwork", new Artwork());
-        model.addAttribute("artists", artistRepository.findAll());
-        model.addAttribute("styles", styleRepository.findAll());
+        model.addAttribute("artists", artists);
+        model.addAttribute("styles", styles);
         return "artworks/add";
     }
 
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute @Valid Artwork artwork, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("artists", artistRepository.findAll());
-            model.addAttribute("styles", styleRepository.findAll());
+            List<Artist> artists = (List<Artist>) artistRepository.findAll();
+            Collections.sort(artists, new ArtistComparator());
+            List<Style> styles = (List<Style>) styleRepository.findAll();
+            Collections.sort(styles, new StyleComparator());
+            model.addAttribute("artists", artists);
+            model.addAttribute("styles", styles);
             return "artworks/add";
         } else {
             artworkRepository.save(artwork);
