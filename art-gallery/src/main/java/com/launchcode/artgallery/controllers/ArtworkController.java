@@ -78,8 +78,12 @@ public class ArtworkController {
     }
 
     @PostMapping("/add")
-    public String processAddArtForm(@ModelAttribute @Valid Artwork artwork, Errors errors, Model model) {
+    public String processAddArtForm(@ModelAttribute @Valid Artwork artwork,
+                                    Errors errors,
+                                    @RequestParam(required = false) List<Integer> styleIds,
+                                    Model model) {
         if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
             List<Artist> artists = (List<Artist>) artistRepository.findAll();
             Collections.sort(artists, new ArtistComparator());
             List<Style> styles = (List<Style>) styleRepository.findAll();
@@ -88,6 +92,10 @@ public class ArtworkController {
             model.addAttribute("styles", styles);
             return "artworks/add";
         } else {
+            if (styleIds != null) {
+                List<Style> selectedStyles = (List<Style>) styleRepository.findAllById(styleIds);
+                artwork.setStyles(selectedStyles);
+            }
             artworkRepository.save(artwork);
             return "redirect:/artworks";
         }

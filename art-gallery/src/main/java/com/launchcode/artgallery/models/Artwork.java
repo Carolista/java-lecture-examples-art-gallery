@@ -1,12 +1,12 @@
 package com.launchcode.artgallery.models;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Artwork extends AbstractEntity {
@@ -18,8 +18,9 @@ public class Artwork extends AbstractEntity {
     @NotNull(message = "Artist is required.")
     private Artist artist;
 
-    @ManyToOne
-    private Style style;
+    @ManyToMany
+//    @NotNull(message = "Please select at least one style.")
+    private List<Style> styles;
 
     @OneToOne(cascade = CascadeType.ALL)
     @Valid
@@ -27,10 +28,10 @@ public class Artwork extends AbstractEntity {
 
     public Artwork() {}
 
-    public Artwork(String title, Artist artist, Style style, ArtworkDetails details) {
+    public Artwork(String title, Artist artist, List<Style> styles, ArtworkDetails details) {
         this.title = title;
         this.artist = artist;
-        this.style = style;
+        this.styles = styles;
         this.details = details;
     }
 
@@ -50,12 +51,12 @@ public class Artwork extends AbstractEntity {
         this.artist = artist;
     }
 
-    public Style getStyle() {
-        return style;
+    public List<Style> getStyles() {
+        return styles;
     }
 
-    public void setStyle(Style style) {
-        this.style = style;
+    public void setStyles(List<Style> styles) {
+        this.styles = styles;
     }
 
     public ArtworkDetails getDetails() {
@@ -69,6 +70,17 @@ public class Artwork extends AbstractEntity {
     @Override
     public String toString() {
         return title + " (" + artist + ", " + details.getYearCreated() + ")";
+    }
+
+    public String getFormattedStyles() {
+        StringBuilder styleNames = new StringBuilder("");
+        for (int i=0; i < styles.size(); i++) {
+            styleNames.append(styles.get(i).getName());
+            if (i < styles.size() - 1) {
+                styleNames.append(", ");
+            }
+        }
+        return styleNames.toString();
     }
 
 }

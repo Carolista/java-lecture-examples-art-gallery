@@ -1,6 +1,7 @@
 package com.launchcode.artgallery.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
@@ -13,7 +14,7 @@ public class Style extends AbstractEntity {
     @NotBlank(message = "Name of style is required.")
     private String name;
 
-    @OneToMany(mappedBy = "style")
+    @ManyToMany(mappedBy = "styles")
     private List<Artwork> artworks = new ArrayList<>();
 
     public Style() {}

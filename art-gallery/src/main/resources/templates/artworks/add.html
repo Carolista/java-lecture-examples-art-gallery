@@ -70,14 +70,13 @@
                         </div>
                         <div class="row">
                             <div class="form-item col">
-                                <label for="style">Style</label>
-                                <select th:field="${artwork.style}">
-                                    <option value="">Select a style</option>
-                                    <option th:each="style : ${styles}"
-                                            th:value="${style.id}"
-                                            th:text="${style.name}"
-                                    ></option>
-                                </select>
+                                <th:block th:each="style : ${styles}">
+                                    <label>
+                                        <input type="checkbox" name="styleIds" th:value="${style.id}" />
+                                        <span th:text="${style.name}"></span>
+                                    </label>
+                                </th:block>
+<!--                                <p class="error" th:errors="${artwork.styles}"></p>-->
                             </div>
                         </div>
                     </div>
