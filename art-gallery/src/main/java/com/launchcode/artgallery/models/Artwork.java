@@ -19,7 +19,6 @@ public class Artwork extends AbstractEntity {
     private Artist artist;
 
     @ManyToMany
-//    @NotNull(message = "Please select at least one style.")
     private List<Style> styles;
 
     @OneToOne(cascade = CascadeType.ALL)
