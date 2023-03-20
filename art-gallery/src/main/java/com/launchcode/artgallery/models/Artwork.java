@@ -14,23 +14,23 @@ public class Artwork extends AbstractEntity {
     @NotBlank(message = "Title is required.")
     private String title;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @Valid
-    private ArtworkDetails details;
-
     @ManyToOne
     @NotNull(message = "Artist is required.")
     private Artist artist;
 
     private Style style;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @Valid
+    private ArtworkDetails details;
+
     public Artwork() {}
 
-    public Artwork(String title, ArtworkDetails details, Artist artist, Style style) {
+    public Artwork(String title, Artist artist, Style style, ArtworkDetails details) {
         this.title = title;
-        this.details = details;
         this.artist = artist;
         this.style = style;
+        this.details = details;
     }
 
     public String getTitle() {

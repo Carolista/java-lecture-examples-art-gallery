@@ -61,19 +61,19 @@
                 </div>
                 <div class="row">
                     <div class="form-item col-2">
-                        <label for="width">Width</label>
-                        <input th:field="${artwork.details.width}" />
+                        <label for="width">Width (in.)</label>
+                        <input type="number" step="0.1" th:field="${artwork.details.width}" />
                     </div>
                     <div class="form-item col-2">
-                        <label for="height">Height</label>
-                        <input th:field="${artwork.details.height}" />
+                        <label for="height">Height (in.)</label>
+                        <input type="number" step="0.1" th:field="${artwork.details.height}" />
                     </div>
                     <div class="form-item col-2">
-                        <label for="depth">Depth</label>
-                        <input th:field="${artwork.details.depth}" />
+                        <label for="depth">Depth (in.)</label>
+                        <input type="number" step="0.1" th:field="${artwork.details.depth}" />
                     </div>
                     <div class="form-item col-6">
-                        <label for="imageId">Image Id</label>
+                        <label for="imageId">Image Id (in.)</label>
                         <input th:field="${artwork.details.imageId}" />
                         <p class="error" th:errors="${artwork.details.imageId}"></p>
                     </div>

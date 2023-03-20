@@ -30,12 +30,12 @@
                 <td th:text="${artwork.id}"></td>
                 <td th:text="${artwork.title}"></td>
                 <td th:text="${artwork.artist}"></td>
-                <td th:text="${artwork.yearCreated}"></td>
-                <td th:text="${artwork.media}"></td>
+                <td th:text="${artwork.details.yearCreated}"></td>
+                <td th:text="${artwork.details.media}"></td>
                 <td th:text="${artwork.style.displayName}"></td>
                 <td>
-                    <a th:href="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" target="_blank">
-                        <img th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" width="50px" />
+                    <a th:href="${'https://drive.google.com/uc?export=view&id=' + artwork.details.imageId}" target="_blank">
+                        <img th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.details.imageId}" width="50px" />
                     </a>
                 </td>
             </tr>
