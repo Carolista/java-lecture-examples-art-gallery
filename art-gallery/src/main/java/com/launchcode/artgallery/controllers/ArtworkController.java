@@ -30,12 +30,20 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String displayArtworksPage(@RequestParam(required = false) Integer artistId, Model model) {
+    public String displayArtworksPage(@RequestParam(required = false) Integer artistId,
+                                      @RequestParam(required = false) Integer styleId,
+                                      Model model) {
         if (artistId != null) {
             Optional<Artist> result = artistRepository.findById(artistId);
             if (result.isPresent()) {
                 Artist artist = result.get();
                 model.addAttribute("artworks", artist.getArtworks());
+            }
+        } else if (styleId != null) {
+            Optional<Style> result = styleRepository.findById(styleId);
+            if (result.isPresent()) {
+                Style style = result.get();
+                model.addAttribute("artworks", style.getArtworks());
             }
         } else {
             model.addAttribute("artworks", artworkRepository.findAll());

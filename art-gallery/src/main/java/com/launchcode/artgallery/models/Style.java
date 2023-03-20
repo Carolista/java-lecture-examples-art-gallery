@@ -29,4 +29,9 @@ public class Style extends AbstractEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Artwork> getArtworks() {
+        return artworks;
+    }
+
 }

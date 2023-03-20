@@ -29,9 +29,7 @@
                 <td th:text="${artist.firstName}"></td>
                 <td th:text="${artist.lastName}"></td>
                 <td th:text="${artist.location}"></td>
-                <td>
-                    <a th:href="${'/artworks?artistId=' + artist.id}">View Artworks</a>
-                </td>
+                <td><a th:href="${'/artworks?artistId=' + artist.id}">View Artworks</a></td>
             </tr>
         </table>
     </th:block>
