@@ -3,6 +3,7 @@ package com.launchcode.artgallery.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Artwork extends AbstractEntity {
@@ -11,24 +12,33 @@ public class Artwork extends AbstractEntity {
     private String title;
 
     @ManyToOne
+    @NotNull(message = "Artist is required.")
     private Artist artist;
-
-    private String yearCreated;
-
-    private String media;
 
     private Style style;
 
+    private String media;
+    private String yearCreated;
+    private String description;
+    private double width;
+    private double height;
+    private double depth;
+
+    @NotBlank(message = "Image ID is required.")
     private String imageId;
 
     public Artwork() {}
 
-    public Artwork(String title, Artist artist, String yearCreated, String media, Style style, String imageId) {
+    public Artwork(String title, Artist artist, Style style, String media, String yearCreated, String description, int width, int height, int depth, String imageId) {
         this.title = title;
         this.artist = artist;
-        this.yearCreated = yearCreated;
-        this.media = media;
         this.style = style;
+        this.media = media;
+        this.yearCreated = yearCreated;
+        this.description = description;
+        this.width = width;
+        this.height = height;
+        this.depth = depth;
         this.imageId = imageId;
     }
 
@@ -46,6 +56,14 @@ public class Artwork extends AbstractEntity {
 
     public void setArtist(Artist artist) {
         this.artist = artist;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getYearCreated() {
@@ -78,6 +96,30 @@ public class Artwork extends AbstractEntity {
 
     public void setImageId(String imageId) {
         this.imageId = imageId;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getDepth() {
+        return depth;
+    }
+
+    public void setDepth(double depth) {
+        this.depth = depth;
     }
 
     @Override

@@ -2,55 +2,86 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-    <header th:replace="~{fragments :: header}"></header>
-    <div id="admin-bar">
-        <div class="nav">
-            <a class="navlink" href="/artworks">View List of Artworks</a>
-            <a class="navlink" href="/artworks/delete">Delete Art</a>
-        </div>
+<header th:replace="~{fragments :: header}"></header>
+<div id="admin-bar">
+    <div class="nav">
+        <a class="navlink" href="/artworks">View List of Artworks</a>
+        <a class="navlink" href="/artworks/delete">Delete Art</a>
     </div>
-    <main>
-        <form action='/artworks/add' method='POST'>
-            <h3>Add Artwork to Collection</h3>
+</div>
+<main>
+    <form action='/artworks/add' method='POST'>
+        <h3>Add Artwork to Collection</h3>
 
-            <div class="form-item">
-                <label for="title">Title</label>
-                <input th:field="${artwork.title}" />
-                <p class="error" th:errors="${artwork.title}"></p>
+        <div class="container">
+            <div class="row">
+                <div class="form-item col-8">
+                    <label for="title">Title</label>
+                    <input th:field="${artwork.title}" />
+                    <p class="error" th:errors="${artwork.title}"></p>
+                </div>
+                <div class="form-item col-4">
+                    <label for="artist">Artist</label>
+                    <select th:field="${artwork.artist}">
+                        <option value="">Select an artist</option>
+                        <!-- th: text will use implicit toString() to get full name -->
+                        <option th:each="artist : ${artists}"
+                                th:value="${artist.id}"
+                                th:text="${artist}"
+                        ></option>
+                    </select>
+                    <p class="error" th:errors="${artwork.artist}"></p>
+                </div>
             </div>
-            <div class="form-item">
-                <label for="artist">Artist</label>
-                <select th:field="${artwork.artist}">
-                    <!-- th: text will use implicit toString() to get full name -->
-                    <option th:each="artist : ${artists}"
-                            th:value="${artist.id}"
-                            th:text="${artist}"
-                    ></option>
-                </select>
+            <div class="row">
+                <div class="form-item col">
+                    <label for="media">Media</label>
+                    <input th:field="${artwork.media}" />
+                </div>
+                <div class="form-item col">
+                    <label for="yearCreated">Year Created</label>
+                    <input th:field="${artwork.yearCreated}" />
+                </div>
+                <div class="form-item col">
+                    <label for="style">Style</label>
+                    <select th:field="${artwork.style}">
+                        <option value="">Select a style</option>
+                        <option th:each="style : ${styles}"
+                                th:value="${style}"
+                                th:text="${style.displayName}"
+                        ></option>
+                    </select>
+                </div>
             </div>
-            <div class="form-item">
-                <label for="media">Media</label>
-                <input th:field="${artwork.media}" />
+            <div class="row">
+                <div class="form-item col">
+                    <label for="description">Description</label>
+                    <textarea th:field="${artwork.description}"></textarea>
+                </div>
             </div>
-            <div class="form-item">
-                <label for="yearCreated">Year Created</label>
-                <input th:field="${artwork.yearCreated}" />
+            <div class="row">
+                <div class="form-item col-2">
+                    <label for="width">Width (in.)</label>
+                    <input type="number" min="0" step="0.1" th:field="${artwork.width}" />
+                </div>
+                <div class="form-item col-2">
+                    <label for="height">Height (in.)</label>
+                    <input type="number" min="0" step="0.1" th:field="${artwork.height}" />
+                </div>
+                <div class="form-item col-2">
+                    <label for="depth">Depth (in.)</label>
+                    <input type="number" min="0" step="0.1" th:field="${artwork.depth}" />
+                </div>
+                <div class="form-item col-6">
+                    <label for="imageId">Image Id</label>
+                    <input th:field="${artwork.imageId}" />
+                    <p class="error" th:errors="${artwork.imageId}"></p>
+                </div>
             </div>
-            <div class="form-item">
-                <label for="style">Style</label>
-                <select th:field="${artwork.style}">
-                    <option th:each="style : ${styles}"
-                            th:value="${style}"
-                            th:text="${style.displayName}"
-                    ></option>
-                </select>
-            </div>
-            <div class="form-item">
-                <label for="imageId">Image Id</label>
-                <input th:field="${artwork.imageId}" />
-            </div>
-            <button type='submit'>Add</button>
-        </form>
-    </main>
+        </div>
+
+        <button type='submit'>Add Artwork</button>
+    </form>
+</main>
 </body>
 </html>

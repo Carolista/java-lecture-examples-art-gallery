@@ -21,7 +21,6 @@
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Year Created</th>
-                    <th>Media</th>
                     <th>Style</th>
                     <th>Image</th>
                 </tr>
@@ -31,7 +30,6 @@
                 <td th:text="${artwork.title}"></td>
                 <td th:text="${artwork.artist}"></td>
                 <td th:text="${artwork.yearCreated}"></td>
-                <td th:text="${artwork.media}"></td>
                 <td th:text="${artwork.style.displayName}"></td>
                 <td>
                     <a th:href="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" target="_blank">

@@ -98,11 +98,7 @@ a.navlink:hover, a.navlink:active {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-bottom: 12px;
-}
-
-input, select {
-    max-width: 200px;
+    margin-bottom: 15px;
 }
 
 button {
@@ -133,4 +129,3 @@ button.delete {
 .bold {
     font-weight: bold;
 }
-

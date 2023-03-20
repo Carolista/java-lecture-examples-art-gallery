@@ -51,6 +51,7 @@ public class ArtworkController {
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute @Valid Artwork artwork, Errors errors, Model model) {
         if (errors.hasErrors()) {
+            model.addAttribute("artists", artistRepository.findAll());
             model.addAttribute("styles", Style.values());
             return "artworks/add";
         } else {
