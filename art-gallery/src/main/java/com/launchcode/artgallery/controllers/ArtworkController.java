@@ -2,6 +2,7 @@ package com.launchcode.artgallery.controllers;
 
 import com.launchcode.artgallery.data.ArtistRepository;
 import com.launchcode.artgallery.data.ArtworkRepository;
+import com.launchcode.artgallery.data.StyleRepository;
 import com.launchcode.artgallery.models.Artist;
 import com.launchcode.artgallery.models.Artwork;
 import com.launchcode.artgallery.models.Style;
@@ -23,6 +24,9 @@ public class ArtworkController {
 
     @Autowired
     private ArtistRepository artistRepository;
+
+    @Autowired
+    private StyleRepository styleRepository;
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
@@ -58,7 +62,7 @@ public class ArtworkController {
     public String displayAddArtForm(Model model) {
         model.addAttribute("artwork", new Artwork());
         model.addAttribute("artists", artistRepository.findAll());
-        model.addAttribute("styles", Style.values());
+        model.addAttribute("styles", styleRepository.findAll());
         return "artworks/add";
     }
 
@@ -66,7 +70,7 @@ public class ArtworkController {
     public String processAddArtForm(@ModelAttribute @Valid Artwork artwork, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("artists", artistRepository.findAll());
-            model.addAttribute("styles", Style.values());
+            model.addAttribute("styles", styleRepository.findAll());
             return "artworks/add";
         } else {
             artworkRepository.save(artwork);

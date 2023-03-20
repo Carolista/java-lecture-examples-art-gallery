@@ -40,18 +40,18 @@ public class ArtistController {
         }
     }
 
-    // Corresponds to http://localhost:8080/artists/delete
-    @GetMapping("/delete")
-    public String displayDeleteArtistForm(Model model) {
-        model.addAttribute("artists", artistRepository.findAll());
-        return "artists/delete";
-    }
-
-    @PostMapping("/delete")
-    public String processDeleteArtistForm(@RequestParam(required = false) int[] artistIds) {
-        for (int id : artistIds) {
-            artistRepository.deleteById(id);
-        }
-        return "redirect:/artists";
-    }
+//    // Corresponds to http://localhost:8080/artists/delete
+//    @GetMapping("/delete")
+//    public String displayDeleteArtistForm(Model model) {
+//        model.addAttribute("artists", artistRepository.findAll());
+//        return "artists/delete";
+//    }
+//
+//    @PostMapping("/delete")
+//    public String processDeleteArtistForm(@RequestParam(required = false) int[] artistIds) {
+//        for (int id : artistIds) {
+//            artistRepository.deleteById(id);
+//        }
+//        return "redirect:/artists";
+//    }
 }

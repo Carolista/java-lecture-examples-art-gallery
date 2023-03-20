@@ -13,7 +13,7 @@
     <main>
         <h2>Artwork Details</h2>
 
-        <h4 th:text="${artwork.title + ' by ' + artwork.artist.toString() + ' (' + artwork.yearCreated + ')'}"></h4>
+        <h4 th:text="${artwork.title + ', by ' + artwork.artist.toString() + ' (' + artwork.yearCreated + ')'}"></h4>
 
         <div class="mt-4 mb-4">
             <img class="mx-auto d-block" th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" height="500px" />
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col">
                     <h5>Style</h5>
-                    <p th:text="${artwork.style.displayName}"></p>
+                    <p th:text="${artwork.style.name}"></p>
 
                     <h5>Media</h5>
                     <p th:text="${artwork.media}"></p>

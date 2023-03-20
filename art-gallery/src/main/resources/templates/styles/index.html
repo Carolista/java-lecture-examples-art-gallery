@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<div id="admin-bar">
+    <div class="nav">
+        <a class="navlink" href="/styles/add">Add Style</a>
+    </div>
+</div>
+<main>
+    <h2>STYLES</h2>
+    <p th:unless="${styles} and ${styles.size()}">
+        <em>No styles to display.</em>
+    </p>
+    <th:block th:if="${styles} and ${styles.size()}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tr th:each="style : ${styles}">
+                <td th:text="${style.id}"></td>
+                <td th:text="${style.name}"></td>
+            </tr>
+        </table>
+    </th:block>
+</main>
+</body>
+</html>

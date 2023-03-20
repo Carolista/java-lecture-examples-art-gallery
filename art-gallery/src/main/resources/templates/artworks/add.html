@@ -47,8 +47,8 @@
                         <select th:field="${artwork.style}">
                             <option value="">Select a style</option>
                             <option th:each="style : ${styles}"
-                                    th:value="${style}"
-                                    th:text="${style.displayName}"
+                                    th:value="${style.id}"
+                                    th:text="${style.name}"
                             ></option>
                         </select>
                     </div>
