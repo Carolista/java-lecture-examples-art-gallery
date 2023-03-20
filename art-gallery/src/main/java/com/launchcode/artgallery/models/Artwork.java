@@ -15,6 +15,8 @@ public class Artwork extends AbstractEntity {
     @NotNull(message = "Artist is required.")
     private Artist artist;
 
+    // TODO #2: Change the relationship to many-to-many
+    //  - Update the constructor, getter, and setter
     @ManyToOne
     private Style style;
 

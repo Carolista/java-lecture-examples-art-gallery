@@ -73,6 +73,7 @@ public class ArtworkController {
         return "artworks/add";
     }
 
+    // TODO #2: Add a query parameter, styleIds, to handle user selections on the /add form
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute @Valid Artwork artwork, Errors errors, Model model) {
         if (errors.hasErrors()) {
@@ -80,6 +81,9 @@ public class ArtworkController {
             model.addAttribute("styles", styleRepository.findAll());
             return "artworks/add";
         } else {
+            // TODO #2: If styleIds were passed in:
+            //  - look up the Style objects for those ids
+            //  - set them into the artwork object that has been passed in through model binding
             artworkRepository.save(artwork);
             return "redirect:/artworks";
         }

@@ -13,6 +13,7 @@ public class Style extends AbstractEntity {
     @NotBlank(message = "Name of style is required.")
     private String name;
 
+    // TODO #2: Update the relationship to be many-to-many and update the value for mappedBy
     @OneToMany(mappedBy = "style")
     private List<Artwork> artworks = new ArrayList<>();
 
