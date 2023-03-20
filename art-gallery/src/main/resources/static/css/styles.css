@@ -101,10 +101,6 @@ a.navlink:hover, a.navlink:active {
     margin-bottom: 12px;
 }
 
-input, select {
-    max-width: 200px;
-}
-
 button {
     color: white;
     background-color: #DA8034;
