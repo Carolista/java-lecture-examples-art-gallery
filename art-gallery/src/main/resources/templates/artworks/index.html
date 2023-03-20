@@ -25,6 +25,7 @@
                         <th>Image</th>
                     </tr>
                 </thead>
+                <!-- TODO #1: Update all references to properties that are now a part of the artwork.details object -->
                 <tr th:each="artwork : ${artworks}">
                     <td th:text="${artwork.id}"></td>
                     <td><a th:href="${'/artworks/details/' + artwork.id}" th:text="${artwork.title}"></a></td>

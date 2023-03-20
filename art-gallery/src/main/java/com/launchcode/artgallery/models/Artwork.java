@@ -18,6 +18,9 @@ public class Artwork extends AbstractEntity {
     @ManyToOne
     private Style style;
 
+    // TODO #1: Create an ArtworkDetails class
+    //  - Move the 7 properties below into that class, as well as getters/setters, and refactor the constructor
+    //  - Add a new field, details, of the ArtworkDetails type, update constructor, and add a getter and setter
     private String media;
 
     @NotBlank(message = "Year is required.")
@@ -30,7 +33,8 @@ public class Artwork extends AbstractEntity {
     @NotBlank(message = "Image ID is required.")
     private String imageId;
 
-    public Artwork() {}
+    public Artwork() {
+    }
 
     public Artwork(String title, Artist artist, Style style, String media, String yearCreated, String description, int width, int height, int depth, String imageId) {
         this.title = title;
@@ -61,20 +65,12 @@ public class Artwork extends AbstractEntity {
         this.artist = artist;
     }
 
-    public String getDescription() {
-        return description;
+    public Style getStyle() {
+        return style;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getYearCreated() {
-        return yearCreated;
-    }
-
-    public void setYearCreated(String yearCreated) {
-        this.yearCreated = yearCreated;
+    public void setStyle(Style style) {
+        this.style = style;
     }
 
     public String getMedia() {
@@ -85,20 +81,20 @@ public class Artwork extends AbstractEntity {
         this.media = media;
     }
 
-    public Style getStyle() {
-        return style;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStyle(Style style) {
-        this.style = style;
+    public String getYearCreated() {
+        return yearCreated;
     }
 
-    public String getImageId() {
-        return imageId;
+    public void setYearCreated(String yearCreated) {
+        this.yearCreated = yearCreated;
     }
 
-    public void setImageId(String imageId) {
-        this.imageId = imageId;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getWidth() {
@@ -125,16 +121,28 @@ public class Artwork extends AbstractEntity {
         this.depth = depth;
     }
 
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+
+    // TODO #1: Update with new reference to details.getYearCreated()
     @Override
     public String toString() {
         return title + " (" + artist + ", " + yearCreated + ")";
     }
 
+    // TODO #1: Move to ArtworkDetails
     public String getDimensions() {
         String widthFormatted = width + "\"W";
         String heightFormatted = " x " + height + "\"H";
         String depthFormatted = depth > 0 ? " x " + depth + "\"D" : "";
         return widthFormatted + heightFormatted + depthFormatted;
     }
+
+    // TODO #2: Add getFormattedStyles() after the many-to-many relationship has been set
 
 }

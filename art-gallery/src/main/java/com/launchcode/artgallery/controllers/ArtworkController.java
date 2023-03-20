@@ -58,7 +58,6 @@ public class ArtworkController {
         if (result.isPresent()) {
             Artwork artwork = result.get();
             model.addAttribute("artwork", artwork);
-//            model.addAttribute("dimensions", artwork.getDimensions())
             return "artworks/details";
         } else {
             return "artworks/index";
