@@ -10,7 +10,7 @@
         </div>
     </div>
     <main>
-        <h3>Add Artwork to Collection</h3>
+        <h3>Add Artwork</h3>
         <form action='/artworks/add' method='POST'>
             <div class="container">
                 <div class="row">
@@ -33,33 +33,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-item col">
-                        <label for="media">Media</label>
-                        <input th:field="${artwork.media}" />
-                    </div>
-                    <div class="form-item col">
+                    <div class="form-item col-2">
                         <label for="yearCreated">Year Created</label>
                         <input th:field="${artwork.yearCreated}" />
                         <p class="error" th:errors="${artwork.yearCreated}"></p>
                     </div>
-                    <div class="form-item col">
-                        <label for="style">Style</label>
-                        <select th:field="${artwork.style}">
-                            <option value="">Select a style</option>
-                            <option th:each="style : ${styles}"
-                                    th:value="${style.id}"
-                                    th:text="${style.name}"
-                            ></option>
-                        </select>
+                    <div class="form-item col-4">
+                        <label for="media">Media</label>
+                        <input th:field="${artwork.media}" />
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-item col">
-                        <label for="description">Description</label>
-                        <textarea th:field="${artwork.description}"></textarea>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="form-item col-2">
                         <label for="width">Width (in.)</label>
                         <input type="number" min="0" step="0.1" th:field="${artwork.width}" />
@@ -72,14 +54,35 @@
                         <label for="depth">Depth (in.)</label>
                         <input type="number" min="0" step="0.1" th:field="${artwork.depth}" />
                     </div>
-                    <div class="form-item col-6">
-                        <label for="imageId">Image Id</label>
-                        <input th:field="${artwork.imageId}" />
-                        <p class="error" th:errors="${artwork.imageId}"></p>
+                </div>
+                <div class="row">
+                    <div class="form-item col">
+                        <label for="description">Description</label>
+                        <textarea th:field="${artwork.description}"></textarea>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="form-item col">
+                                <label for="imageId">Image ID</label>
+                                <input th:field="${artwork.imageId}" />
+                                <p class="error" th:errors="${artwork.imageId}"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-item col">
+                                <label for="style">Style</label>
+                                <select th:field="${artwork.style}">
+                                    <option value="">Select a style</option>
+                                    <option th:each="style : ${styles}"
+                                            th:value="${style.id}"
+                                            th:text="${style.name}"
+                                    ></option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
             <button type='submit'>Add Artwork</button>
         </form>
     </main>
