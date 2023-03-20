@@ -18,6 +18,8 @@ public class Artwork extends AbstractEntity {
     private Style style;
 
     private String media;
+
+    @NotBlank(message = "Year is required.")
     private String yearCreated;
     private String description;
     private double width;
@@ -125,6 +127,13 @@ public class Artwork extends AbstractEntity {
     @Override
     public String toString() {
         return title + " (" + artist + ", " + yearCreated + ")";
+    }
+
+    public String getDimensions() {
+        String widthFormatted = width + "\"W";
+        String heightFormatted = " x " + height + "\"H";
+        String depthFormatted = depth > 0 ? " x " + depth + "\"D" : "";
+        return widthFormatted + heightFormatted + depthFormatted;
     }
 
 }

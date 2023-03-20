@@ -5,8 +5,8 @@
     <header th:replace="~{fragments :: header}"></header>
     <div id="admin-bar">
         <div class="nav">
-            <a class="navlink" href="/artworks/add">Add Art</a>
-            <a class="navlink" href="/artworks/delete">Delete Art</a>
+            <a class="navlink" href="/artworks/add">Add Artwork</a>
+            <a class="navlink" href="/artworks/delete">Delete Artwork</a>
         </div>
     </div>
     <main>
@@ -21,18 +21,16 @@
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Year Created</th>
-                    <th>Style</th>
                     <th>Image</th>
                 </tr>
             </thead>
             <tr th:each="artwork : ${artworks}">
                 <td th:text="${artwork.id}"></td>
-                <td th:text="${artwork.title}"></td>
+                <td><a th:href="${'/artworks/details/' + artwork.id}" th:text="${artwork.title}"></a></td>
                 <td th:text="${artwork.artist}"></td>
                 <td th:text="${artwork.yearCreated}"></td>
-                <td th:text="${artwork.style.displayName}"></td>
                 <td>
-                    <a th:href="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" target="_blank">
+                    <a th:href="${'/artworks/details/' + artwork.id}">
                         <img th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" width="50px" />
                     </a>
                 </td>
