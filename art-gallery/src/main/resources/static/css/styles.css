@@ -107,7 +107,7 @@ a.navlink:hover, a.navlink:active {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 button {
@@ -137,4 +137,8 @@ button.delete {
 
 .bold {
     font-weight: bold;
+}
+
+textarea {
+    min-height: 120px;
 }
