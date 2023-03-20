@@ -15,7 +15,7 @@ public class Style extends AbstractEntity {
 
     // TODO #2: Update the relationship to be many-to-many and update the value for mappedBy
     @OneToMany(mappedBy = "style")
-    private List<Artwork> artworks = new ArrayList<>();
+    private final List<Artwork> artworks = new ArrayList<>();
 
     public Style() {}
 
