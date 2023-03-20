@@ -41,18 +41,4 @@ public class StyleController {
         }
     }
 
-//    // Corresponds to http://localhost:8080/styles/delete
-//    @GetMapping("/delete")
-//    public String displayDeleteStyleForm(Model model) {
-//        model.addAttribute("styles", styleRepository.findAll());
-//        return "styles/delete";
-//    }
-//
-//    @PostMapping("/delete")
-//    public String processDeleteStyleForm(@RequestParam(required = false) int[] styleIds) {
-//        for (int id : styleIds) {
-//            styleRepository.deleteById(id);
-//        }
-//        return "redirect:/styles";
-//    }
 }
