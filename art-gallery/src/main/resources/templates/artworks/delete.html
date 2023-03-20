@@ -10,16 +10,21 @@
         </div>
     </div>
     <main>
-        <form action='/artworks/delete' method='POST'>
-            <h3>Delete Artwork from Collection</h3>
-            <th:block th:each="artwork : ${artworks}">
-                <label>
-                    <input type="checkbox" name="artworkIds" th:value="${artwork.id}" />
-                    <span th:text="${artwork}"></span> <!-- implicitly calls toString() -->
-                </label><br />
-            </th:block>
-            <button class="delete" type='submit'>Delete</button>
-        </form>
+        <h3>Delete Artwork from Collection</h3>
+        <p th:unless="${artworks} and ${artworks.size()}">
+            <em>No artworks to display.</em>
+        </p>
+        <th:block th:if="${artworks} and ${artworks.size()}">
+            <form action='/artworks/delete' method='POST'>
+                <th:block th:each="artwork : ${artworks}">
+                    <label>
+                        <input type="checkbox" name="artworkIds" th:value="${artwork.id}" />
+                        <span th:text="${artwork}"></span> <!-- implicitly calls toString() -->
+                    </label><br />
+                </th:block>
+                <button class="delete" type='submit'>Delete</button>
+            </form>
+        </th:block>
     </main>
 </body>
 </html>

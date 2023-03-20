@@ -10,16 +10,21 @@
     </div>
 </div>
 <main>
-    <form action='/artists/delete' method='POST'>
-        <h3>Delete Artist</h3>
-        <th:block th:each="artist : ${artists}">
-            <label>
-                <input type="checkbox" name="artistIds" th:value="${artist.id}" />
-                <span th:text="${artist}"></span> <!-- implicitly calls toString() -->
-            </label><br />
-        </th:block>
-        <button class="delete" type='submit'>Delete</button>
-    </form>
+    <h3>Delete Artist</h3>
+    <p th:unless="${artists} and ${artists.size()}">
+        <em>No artists to display.</em>
+    </p>
+    <th:block th:if="${artists} and ${artists.size()}">
+        <form action='/artists/delete' method='POST'>
+            <th:block th:each="artist : ${artists}">
+                <label>
+                    <input type="checkbox" name="artistIds" th:value="${artist.id}" />
+                    <span th:text="${artist}"></span> <!-- implicitly calls toString() -->
+                </label><br />
+            </th:block>
+            <button class="delete" type='submit'>Delete</button>
+        </form>
+    </th:block>
 </main>
 </body>
 </html>
