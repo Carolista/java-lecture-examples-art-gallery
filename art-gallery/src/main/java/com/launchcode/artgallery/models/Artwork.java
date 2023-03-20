@@ -18,6 +18,7 @@ public class Artwork extends AbstractEntity {
     @NotNull(message = "Artist is required.")
     private Artist artist;
 
+    @ManyToOne
     private Style style;
 
     @OneToOne(cascade = CascadeType.ALL)

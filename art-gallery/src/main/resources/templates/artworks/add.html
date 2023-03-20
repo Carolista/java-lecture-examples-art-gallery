@@ -10,7 +10,7 @@
         </div>
     </div>
     <main>
-        <h3>Add Artwork to Collection</h3>
+        <h3>Add Artwork</h3>
         <form action='/artworks/add' method='POST'>
             <div class="container">
                 <div class="row">
@@ -47,8 +47,8 @@
                         <select th:field="${artwork.style}">
                             <option value="">Select a style</option>
                             <option th:each="style : ${styles}"
-                                    th:value="${style}"
-                                    th:text="${style.displayName}"
+                                    th:value="${style.id}"
+                                    th:text="${style.name}"
                             ></option>
                         </select>
                     </div>

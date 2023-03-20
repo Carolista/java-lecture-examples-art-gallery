@@ -1,25 +1,32 @@
 package com.launchcode.artgallery.models;
 
-public enum Style {
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
 
-    ARCHITECTURAL_SCULPTURE("Architectural Sculpture"),
-    ABSTRACT("Abstract Photography"),
-    ASTROPHOTOGRAPHY("Astrophotography"),
-    DIGITAL_ILLUSTRATION("Digital Illustration"),
-    INK_ILLUSTRATION("Ink Illustration"),
-    LANDSCAPE_PHOTOGRAPHY("Landscape Photography"),
-    MAXIMALIST_PHOTOGRAPHY("Maximalist Photography"),
-    PENCIL_ILLUSTRATION("Pencil Illustration"),
-    PHOTOREALISM("Photorealism"),
-    REALISM("Realism");
+import java.util.ArrayList;
+import java.util.List;
 
-    private final String displayName;
+@Entity
+public class Style extends AbstractEntity {
 
-    Style(String displayName) {
-        this.displayName = displayName;
+    @NotBlank(message = "Name of style is required.")
+    private String name;
+
+    @OneToMany(mappedBy = "style")
+    private List<Artwork> artworks = new ArrayList<>();
+
+    public Style() {}
+
+    public Style(String name) {
+        this.name = name;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
