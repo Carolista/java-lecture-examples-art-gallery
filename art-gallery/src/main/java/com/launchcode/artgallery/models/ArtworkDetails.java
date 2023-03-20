@@ -7,6 +7,8 @@ import jakarta.validation.constraints.NotBlank;
 public class ArtworkDetails extends AbstractEntity {
 
     private String media;
+
+    @NotBlank(message = "Year is required.")
     private String yearCreated;
     private String description;
 
@@ -16,7 +18,6 @@ public class ArtworkDetails extends AbstractEntity {
 
     @NotBlank(message = "Image ID is required.")
     private String imageId;
-
 
     public ArtworkDetails() {}
 
@@ -84,5 +85,12 @@ public class ArtworkDetails extends AbstractEntity {
 
     public void setImageId(String imageId) {
         this.imageId = imageId;
+    }
+
+    public String getDimensions() {
+        String widthFormatted = width + "\"W";
+        String heightFormatted = " x " + height + "\"H";
+        String depthFormatted = depth > 0 ? " x " + depth + "\"D" : "";
+        return widthFormatted + heightFormatted + depthFormatted;
     }
 }

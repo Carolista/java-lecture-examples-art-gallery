@@ -48,12 +48,17 @@ h2 {
     width: auto;
     border-radius: 2px;
     padding: 5px 8px;
+    margin-bottom: 20px;
 }
 
 h3 {
     color: #1E323C;
     font-size: 24px;
     font-weight: 700;
+}
+
+h5 {
+    font-weight: bold;
 }
 
 #mag {
@@ -80,6 +85,10 @@ a {
     color: #DA8034;
     font-weight: bold;
     text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #B95A0A;
 }
 
 a.navlink:link, a.navlink:visited {
@@ -129,4 +138,3 @@ button.delete {
 .bold {
     font-weight: bold;
 }
-

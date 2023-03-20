@@ -6,13 +6,12 @@
     <div id="admin-bar">
         <div class="nav">
             <a class="navlink" href="/artworks">View List of Artworks</a>
-            <a class="navlink" href="/artworks/delete">Delete Art</a>
+            <a class="navlink" href="/artworks/delete">Delete Artwork</a>
         </div>
     </div>
     <main>
+        <h3>Add Artwork to Collection</h3>
         <form action='/artworks/add' method='POST'>
-            <h3>Add Artwork to Collection</h3>
-
             <div class="container">
                 <div class="row">
                     <div class="form-item col-8">
@@ -41,6 +40,7 @@
                     <div class="form-item col">
                         <label for="yearCreated">Year Created</label>
                         <input th:field="${artwork.details.yearCreated}" />
+                        <p class="error" th:errors="${artwork.details.yearCreated}"></p>
                     </div>
                     <div class="form-item col">
                         <label for="style">Style</label>

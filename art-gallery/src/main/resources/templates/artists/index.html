@@ -12,28 +12,30 @@
 <main>
     <h2>ARTISTS</h2>
     <p th:unless="${artists} and ${artists.size()}">
-        <em>No contents to display.</em>
+        <em>No artists to display.</em>
     </p>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Location</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tr th:each="artist : ${artists}">
-            <td th:text="${artist.id}"></td>
-            <td th:text="${artist.firstName}"></td>
-            <td th:text="${artist.lastName}"></td>
-            <td th:text="${artist.location}"></td>
-            <td>
-                <a th:href="${'/artworks?artistId=' + artist.id}">View Artworks</a>
-            </td>
-        </tr>
-    </table>
+    <th:block th:if="${artists} and ${artists.size()}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Location</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tr th:each="artist : ${artists}">
+                <td th:text="${artist.id}"></td>
+                <td th:text="${artist.firstName}"></td>
+                <td th:text="${artist.lastName}"></td>
+                <td th:text="${artist.location}"></td>
+                <td>
+                    <a th:href="${'/artworks?artistId=' + artist.id}">View Artworks</a>
+                </td>
+            </tr>
+        </table>
+    </th:block>
 </main>
 </body>
 </html>

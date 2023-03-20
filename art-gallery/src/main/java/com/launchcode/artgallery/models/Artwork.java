@@ -41,14 +41,6 @@ public class Artwork extends AbstractEntity {
         this.title = title;
     }
 
-    public ArtworkDetails getDetails() {
-        return details;
-    }
-
-    public void setDetails(ArtworkDetails details) {
-        this.details = details;
-    }
-
     public Artist getArtist() {
         return artist;
     }
@@ -63,6 +55,14 @@ public class Artwork extends AbstractEntity {
 
     public void setStyle(Style style) {
         this.style = style;
+    }
+
+    public ArtworkDetails getDetails() {
+        return details;
+    }
+
+    public void setDetails(ArtworkDetails details) {
+        this.details = details;
     }
 
     @Override

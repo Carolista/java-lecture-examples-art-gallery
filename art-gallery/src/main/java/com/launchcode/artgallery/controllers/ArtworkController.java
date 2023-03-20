@@ -39,6 +39,20 @@ public class ArtworkController {
         return "artworks/index";
     }
 
+    // Corresponds to http://localhost:8080/artworks/details/1
+    @GetMapping("/details/{artworkId}")
+    public String displayArtworkDetailsPage(@PathVariable int artworkId, Model model) {
+        Optional<Artwork> result = artworkRepository.findById(artworkId);
+        if (result.isPresent()) {
+            Artwork artwork = result.get();
+            model.addAttribute("artwork", artwork);
+//            model.addAttribute("dimensions", artwork.getDimensions())
+            return "artworks/details";
+        } else {
+            return "artworks/index";
+        }
+    }
+
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
     public String displayAddArtForm(Model model) {
