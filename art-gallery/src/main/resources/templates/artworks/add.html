@@ -72,6 +72,7 @@
                         <div class="row">
                             <div class="form-item col">
                                 <label for="style">Style</label>
+                                <!-- TODO #2: Replace this select with a series of checkboxes -->
                                 <select th:field="${artwork.style}">
                                     <option value="">Select a style</option>
                                     <option th:each="style : ${styles}"
