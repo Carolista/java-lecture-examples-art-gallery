@@ -20,7 +20,7 @@ header {
 #admin-bar {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: flex-end;
     background-color: #DA8034;
     color: white;

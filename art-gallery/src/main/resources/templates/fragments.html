@@ -15,10 +15,16 @@
         <div id="mag"><b>Midtown</b> Art Gallery</div>
         <div class="nav">
             <span class="bold">ADMIN PORTAL</span>
-            <a class="navlink" href="/artists">Artists</a>
-            <a class="navlink" href="/artworks">Artworks</a>
-            <span class="faux-link">Exhibitions</span>
-            <a class="navlink" href="/styles">Styles</a>
+            <th:block th:unless="${loggedIn}">
+                <a class="navlink" href="/login">Log In</a>
+                <a class="navlink" href="/register">Register</a>
+            </th:block>
+            <th:block th:if="${loggedIn}">
+                <a class="navlink" href="/artists">Artists</a>
+                <a class="navlink" href="/artworks">Artworks</a>
+                <a class="navlink" href="/styles">Styles</a>
+                <a class="navlink" href="/logout">Log Out</a>
+            </th:block>
         </div>
     </header>
 </body>

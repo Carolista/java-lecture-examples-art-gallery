@@ -2,6 +2,7 @@ package com.launchcode.artgallery.controllers;
 
 import com.launchcode.artgallery.data.ArtistRepository;
 import com.launchcode.artgallery.models.Artist;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,14 +19,16 @@ public class ArtistController {
 
     // Corresponds to http://localhost:8080/artists
     @GetMapping
-    public String displayArtistsPage(Model model) {
+    public String displayArtistsPage(Model model, HttpSession session) {
         model.addAttribute("artists", artistRepository.findAll());
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "/artists/index";
     }
 
     // Corresponds to http://localhost:8080/artists/add
     @GetMapping("/add")
-    public String displayAddArtistForm(Model model) {
+    public String displayAddArtistForm(Model model, HttpSession session) {
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("artist", new Artist());
         return "artists/add";
     }

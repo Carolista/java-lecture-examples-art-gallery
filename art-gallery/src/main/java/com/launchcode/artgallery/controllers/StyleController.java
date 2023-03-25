@@ -3,6 +3,7 @@ package com.launchcode.artgallery.controllers;
 import com.launchcode.artgallery.data.StyleRepository;
 import com.launchcode.artgallery.models.Artist;
 import com.launchcode.artgallery.models.Style;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,15 +20,17 @@ public class StyleController {
 
     // Corresponds to http://localhost:8080/styles
     @GetMapping
-    public String displayStylesPage(Model model) {
+    public String displayStylesPage(Model model, HttpSession session) {
         model.addAttribute("styles", styleRepository.findAll());
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "/styles/index";
     }
 
     // Corresponds to http://localhost:8080/styles/add
     @GetMapping("/add")
-    public String displayAddStyleForm(Model model) {
+    public String displayAddStyleForm(Model model, HttpSession session) {
         model.addAttribute("style", new Style());
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "styles/add";
     }
 

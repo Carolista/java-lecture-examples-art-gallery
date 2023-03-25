@@ -4,6 +4,7 @@ import com.launchcode.artgallery.data.ArtistRepository;
 import com.launchcode.artgallery.data.ArtworkRepository;
 import com.launchcode.artgallery.data.StyleRepository;
 import com.launchcode.artgallery.models.*;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,8 @@ public class ArtworkController {
     @GetMapping("")
     public String displayArtworksPage(@RequestParam(required = false) Integer artistId,
                                       @RequestParam(required = false) Integer styleId,
-                                      Model model) {
+                                      Model model,
+                                      HttpSession session) {
         if (artistId != null) {
             Optional<Artist> result = artistRepository.findById(artistId);
             if (result.isPresent()) {
@@ -48,12 +50,14 @@ public class ArtworkController {
         } else {
             model.addAttribute("artworks", artworkRepository.findAll());
         }
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "artworks/index";
     }
 
     // Corresponds to http://localhost:8080/artworks/details/1
     @GetMapping("/details/{artworkId}")
-    public String displayArtworkDetailsPage(@PathVariable int artworkId, Model model) {
+    public String displayArtworkDetailsPage(@PathVariable int artworkId, Model model, HttpSession session) {
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         Optional<Artwork> result = artworkRepository.findById(artworkId);
         if (result.isPresent()) {
             Artwork artwork = result.get();
@@ -66,7 +70,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
-    public String displayAddArtForm(Model model) {
+    public String displayAddArtForm(Model model, HttpSession session) {
         List<Artist> artists = (List<Artist>) artistRepository.findAll();
         Collections.sort(artists, new ArtistComparator());
         List<Style> styles = (List<Style>) styleRepository.findAll();
@@ -74,6 +78,7 @@ public class ArtworkController {
         model.addAttribute("artwork", new Artwork());
         model.addAttribute("artists", artists);
         model.addAttribute("styles", styles);
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "artworks/add";
     }
 
@@ -103,8 +108,9 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/delete
     @GetMapping("/delete")
-    public String displayDeleteArtForm(Model model) {
+    public String displayDeleteArtForm(Model model, HttpSession session) {
         model.addAttribute("artworks", artworkRepository.findAll());
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "artworks/delete";
     }
 
