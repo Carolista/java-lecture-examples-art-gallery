@@ -83,7 +83,6 @@ public class AuthenticationController {
 
         // Send user back to form if passwords didn't match
         String password = registrationFormDTO.getPassword();
-        System.out.println("password is " + password);
         String verifyPassword = registrationFormDTO.getVerifyPassword();
         if (!password.equals(verifyPassword)) {
             errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
@@ -92,7 +91,6 @@ public class AuthenticationController {
 
         // OTHERWISE, save new username and hashed password in database, start a new session, and redirect to home page
         User newUser = new User(registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
-        System.out.println(newUser);
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
         return "redirect:/artworks";
