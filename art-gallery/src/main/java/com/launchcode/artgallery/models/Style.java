@@ -1,8 +1,8 @@
 package com.launchcode.artgallery.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
@@ -15,6 +15,7 @@ public class Style extends AbstractEntity {
     private String name;
 
     @ManyToMany(mappedBy = "styles")
+    @JsonBackReference
     private final List<Artwork> artworks = new ArrayList<>();
 
     public Style() {}

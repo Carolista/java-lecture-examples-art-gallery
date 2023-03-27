@@ -1,0 +1,12 @@
+<main *ngIf="!isLoading">
+  <h1>Artworks</h1>
+
+  <div class="artwork-container">
+    <ng-container *ngFor="let artwork of artworks">
+      <a [href]="'/artworks/' + artwork.id">
+        <app-artwork-card [artwork]="artwork"></app-artwork-card>
+      </a>
+    </ng-container>
+  </div>
+
+</main>

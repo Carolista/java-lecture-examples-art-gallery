@@ -1,0 +1,5 @@
+<div class="card artwork-card">
+  <img class="card-image" [src]="artwork.details.getImageURL()" />
+  <h5>{{artwork.title}}</h5>
+  <p>{{artwork.artist.getFullName()}} ({{artwork.details.yearCreated}})</p> 
+</div>

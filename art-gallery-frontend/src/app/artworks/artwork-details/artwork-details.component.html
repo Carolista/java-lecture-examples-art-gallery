@@ -1,0 +1,34 @@
+<main>
+  <p><a [href]="'/artworks'">&larr; Back to Artworks Gallery View</a></p>
+  <h2>ARTWORK DETAILS</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <img class="card-image" [src]="artwork.details.getImageURL()" /> 
+      </div>
+      <div class="col-6">
+        <h4 class="mb-4 mt-2 font-bold">{{artwork.title + " (" + artwork.details.yearCreated + ")"}}</h4>
+        <ng-container>
+          <h5>Artist</h5>
+          <p>{{artwork.artist.getFullName()}} &mdash; {{artwork.artist.location}}</p>       
+        </ng-container>
+        <ng-container *ngIf="artwork.details.description != ''">
+          <h5>Description</h5>
+          <p>{{artwork.details.description}}</p> 
+        </ng-container>
+        <ng-container>
+          <h5>{{artwork.styles.length === 1 ? 'Style' : 'Styles'}}</h5>
+          <p>{{artwork.getFormattedStyles()}}</p> 
+        </ng-container>
+        <ng-container *ngIf="artwork.details.media != ''">
+          <h5>Media</h5>
+          <p>{{artwork.details.media}}</p> 
+        </ng-container>
+        <ng-container *ngIf="artwork.details.getDimensions() != ''">
+          <h5>Dimensions</h5>
+          <p>{{artwork.details.getDimensions()}}</p> 
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,11 +1,11 @@
 package com.launchcode.artgallery.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @Entity
@@ -20,6 +20,7 @@ public class Artist extends AbstractEntity {
     private String location;
 
     @OneToMany(mappedBy="artist")
+    @JsonBackReference
     private final List<Artwork> artworks = new ArrayList<>();
 
     public Artist() {}

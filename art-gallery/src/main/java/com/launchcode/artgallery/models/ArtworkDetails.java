@@ -1,5 +1,6 @@
 package com.launchcode.artgallery.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotBlank;
 
@@ -87,6 +88,7 @@ public class ArtworkDetails extends AbstractEntity {
         this.imageId = imageId;
     }
 
+    @JsonIgnore
     public String getDimensions() {
         String widthFormatted = width + "\"W";
         String heightFormatted = " x " + height + "\"H";

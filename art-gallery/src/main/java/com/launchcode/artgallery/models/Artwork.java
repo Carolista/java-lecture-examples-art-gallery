@@ -1,5 +1,7 @@
 package com.launchcode.artgallery.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -15,9 +17,11 @@ public class Artwork extends AbstractEntity {
 
     @ManyToOne
     @NotNull(message = "Artist is required.")
+    @JsonManagedReference
     private Artist artist;
 
     @ManyToMany
+    @JsonManagedReference
     private List<Style> styles;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -70,6 +74,7 @@ public class Artwork extends AbstractEntity {
         return title + " (" + artist + ", " + details.getYearCreated() + ")";
     }
 
+    @JsonIgnore
     public String getFormattedStyles() {
         StringBuilder styleNames = new StringBuilder("");
         for (int i=0; i < styles.size(); i++) {
