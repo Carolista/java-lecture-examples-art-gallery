@@ -1,7 +1,6 @@
 package com.launchcode.artgallery;
 
 import com.launchcode.artgallery.controllers.AuthenticationController;
-import com.launchcode.artgallery.data.UserRepository;
 import com.launchcode.artgallery.models.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
