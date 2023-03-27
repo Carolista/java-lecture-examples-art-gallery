@@ -22,7 +22,6 @@ export class ArtworkDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id");
-    console.log("id from paramMap", this.id);
     this.fetchArtwork();
   }
 
@@ -32,11 +31,11 @@ export class ArtworkDetailsComponent implements OnInit {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:4200', // Deal with CORS policy issues
+        'Access-Control-Allow-Origin': 'http://localhost:4200', // CORS policy 
       }
     });
     
-    let obj: Artwork = await response.json(); // example: { id: 32 }
+    let obj: Artwork = await response.json();
 
     console.log("Response received with payload:", obj); 
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Artist } from 'src/app/classes/artist';
 import { Artwork } from 'src/app/classes/artwork';
 import { ArtworkDetails } from 'src/app/classes/artwork-details';
@@ -33,6 +33,7 @@ export class ArtworksComponent implements OnInit {
     
     let payload: Artwork[] = await response.json();
 
+    console.log("Response received with payload", payload);
 
     payload.forEach(obj => {
       let artist = new Artist(obj.artist.id, obj.artist.firstName, obj.artist.lastName, obj.artist.location);
