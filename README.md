@@ -1,2 +1,3 @@
 # java-lecture-examples-art-gallery
-lecture examples for multiple class days starting with class 10 in Unit 2
+
+Lecture examples for class 8 and classes 10-20 in Unit 2
