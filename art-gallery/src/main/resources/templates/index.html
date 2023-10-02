@@ -4,7 +4,7 @@
 <body>
     <header th:replace="~{fragments :: header}"></header>
     <main>
-        <h1 th:text="${title}"></h1>
+        <h1 th:text="${headingText}"></h1>
         <p>This portal will allow you to help manage our <a href='/artworks'>collection</a> of fine art.</p>
     </main>
     <img th:src="@{/images/gallery2.png}" width="100%" />
