@@ -1,4 +1,4 @@
-package com.launchcode.artgallery.controllers;
+package org.launchcode.artgallery.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String displayCollectionPage(Model model) {
+    public String renderCollectionPage(Model model) {
         List<String> artworkList = new ArrayList<>(artworks.values());
         model.addAttribute("artworkList", artworkList);
         return "artworks/index";
@@ -30,7 +30,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
-    public String displayAddArtForm() {
+    public String renderAddArtForm() {
         return "artworks/add";
     }
 
