@@ -3,9 +3,14 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
     <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/artworks">View List of Artworks</a>
+        </div>
+    </div>
     <main>
-        <form action='/collection/add' method='POST'>
-            <p>Ooh! New art! What is it called?</p>
+        <h3>Add Artwork</h3>
+        <form action='/artworks/add' method='POST'>
             <input type='text' name='artwork' />
             <button type='submit'>Add to Collection</button>
         </form>
