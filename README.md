@@ -20,7 +20,7 @@ git remote add upstream https://github.com/Carolista/java-lecture-examples-art-g
 Now you have two remotes, `origin` (your fork) and `upstream` (my original repo)
 
 #### STEP 2:
-In order to update the new branch locally, you will need to fetch anything new from my repo:
+In order to pull in changes locally, you will need to fetch anything new from my repo:
 
 ```
 git fetch upstream
