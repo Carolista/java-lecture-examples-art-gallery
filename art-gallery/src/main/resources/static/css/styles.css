@@ -1,5 +1,6 @@
 body {
-    font-family: Arial, 'sans-serif';
+    color: #1E323C;
+    font-family: 'Assistant', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,17 +11,72 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    background-color: #B03A2E;
+    background-color: #1E323C;
     color: white;
-    height: 50px;
+    height: 60px;
     padding: 10px 30px;
 }
 
-#mag {
-    font-size: 30px;
+#admin-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-color: #DA8034;
+    color: white;
+    font-size: 0.9rem;
+    height: 30px;
+    padding: 6px 30px;
 }
 
-#nav {
+h1, h2, h3 {
+    font-family: 'Kodchasan', sans-serif;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: #DA8034;
+    font-weight: 700;
+}
+
+h2 {
+    color: white;
+    background-color: #1E323C;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 6px;
+    width: auto;
+    border-radius: 2px;
+    padding: 5px 8px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #1E323C;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+#mag {
+    font-family: 'Kodchasan', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+#admin-portal > a {
+    color: inherit;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+.nav {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -32,24 +88,63 @@ main {
 }
 
 a {
-    color: #B03A2E;
+    color: #DA8034;
     font-weight: bold;
     text-decoration: none;
 }
 
-a.nav-link:link, a.nav-link:visited {
+a:hover, a:active {
+    color: #B95A0A;
+}
+
+a.navlink:link, a.navlink:visited {
     color: white;
     font-weight: 400;
 }
-a.nav-link:hover, a.nav-link:active {
+a.navlink:hover, a.navlink:active {
     text-decoration: underline;
+}
+
+.faux-link {
+    opacity: 0.6;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
 }
 
 button {
     color: white;
-    background-color: #B03A2E;
+    background-color: #DA8034;
     margin-top: 20px;
+    padding: 5px;
     outline: none;
     border: none;
     border-radius: 4px;
+}
+
+button.delete {
+    background-color: #B03A2E;
+}
+
+.error {
+    color: #B03A2E;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.all-errors {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 200px;
 }

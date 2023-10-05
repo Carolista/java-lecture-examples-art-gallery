@@ -3,10 +3,16 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
     <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/artworks">View List of Artworks</a>
+            <a class="navlink" href="/artworks/add">Add Artwork</a>
+        </div>
+    </div>
     <main>
-        <form action='/collection/delete' method='POST'>
-            <h3>Delete Artwork from Collection</h3>
-            <th:block th:each="artwork : ${collection}">
+        <h3>Delete Artwork</h3>
+        <form action='/artworks/delete' method='POST'>
+            <th:block th:each="artwork : ${artworkList}">
                 <label>
                     <input type="checkbox" name="artworkIds" th:value="${artwork.id}" />
                     <span th:text="${artwork}"></span> <!-- implicitly calls toString() -->

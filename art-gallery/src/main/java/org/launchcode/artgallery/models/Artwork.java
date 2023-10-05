@@ -1,4 +1,4 @@
-package com.launchcode.artgallery.models;
+package org.launchcode.artgallery.models;
 
 import java.util.Objects;
 
@@ -9,13 +9,11 @@ public class Artwork {
     private final int id;
     private String title;
     private String artist;
-    private String period;
 
-    public Artwork(String title, String artist, String period) {
+    public Artwork(String title, String artist) {
         this.id = nextId;
         this.title = title;
         this.artist = artist;
-        this.period = period;
         nextId++;
     }
 
@@ -39,17 +37,9 @@ public class Artwork {
         this.artist = artist;
     }
 
-    public String getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(String period) {
-        this.period = period;
-    }
-
     @Override
     public String toString() {
-        return title + " (" + artist + ", " + period + ")";
+        return title + " (" + artist + ")";
     }
 
     @Override
