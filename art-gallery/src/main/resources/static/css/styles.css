@@ -64,13 +64,13 @@ h5 {
 #mag {
     font-family: 'Kodchasan', sans-serif;
     font-size: 30px;
-    font-weight: 200;
+    font-weight: 400;
     text-transform: uppercase;
     margin: 0;
     padding: 0;
 }
 
-#mag > a {
+#admin-portal > a {
     color: inherit;
     font-family: inherit;
     text-decoration: none;
