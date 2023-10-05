@@ -23,18 +23,21 @@ public class ArtworkController {
         return "artworks/add";
     }
 
+    // Corresponds to http://localhost:8080/artworks/add?title=SomeTitle&artist=SomeArtist
     @PostMapping("/add")
     public String processAddArtForm(@ModelAttribute Artwork artwork) {
         ArtworksData.add(artwork);
         return "redirect:/artworks";
     }
 
+    // Corresponds to http://localhost:8080/artworks/delete
     @GetMapping("/delete")
-    public String displayDeleteArtForm(Model model) {
+    public String renderDeleteArtForm(Model model) {
         model.addAttribute("artworkList", ArtworksData.getAll());
         return "artworks/delete";
     }
 
+    // Corresponds to http://localhost:8080/artworks/delete?artworkIds=1&artworkIds=2 (etc)
     @PostMapping("/delete")
     public String processDeleteArtForm(@RequestParam(required = false) int[] artworkIds) {
         for (int id : artworkIds) {
