@@ -46,6 +46,7 @@ public class ArtworkController {
     // TODO: Modify this to accommodate additional properties of object in Artwork model
     // TODO: Later, make use of data layer class method to add artwork to art collection
     // TODO: Last, modify again to use model binding
+    // Corresponds to http://localhost:8080/artworks/add?artwork=someArtworkTitle
     @PostMapping("/add")
     public String processAddArtForm(@RequestParam String artwork) {
         artworks.put(nextId, artwork);
