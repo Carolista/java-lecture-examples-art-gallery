@@ -25,7 +25,7 @@ public class ArtworkController {
     // TODO: Pass list of values from map, artworkList, to template using Model class
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String renderArtworksHomePage() {
+    public String renderArtworksPage() {
         StringBuilder artworksList = new StringBuilder();
         for (int artworkId : artworks.keySet()) {
             String artwork = artworks.get(artworkId);
@@ -45,7 +45,7 @@ public class ArtworkController {
     // TODO: Convert this to use a template, add.html
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
-    public String renderAddArtworkForm() {
+    public String renderAddArtForm() {
         return "<html>" +
                 "<body>" +
                 "<form action='/artworks/add' method='POST'>" +
@@ -60,7 +60,7 @@ public class ArtworkController {
     // TODO: Convert this to redirect to /artworks route
     // Corresponds to http://localhost:8080/artworks/add?artwork=someArtworkTitle
     @PostMapping("/add")
-    public String processAddArtworkForm(@RequestParam String artwork) {
+    public String processAddArtForm(@RequestParam String artwork) {
         artworks.put(nextId, artwork);
         nextId++;
         return "<html>" +
