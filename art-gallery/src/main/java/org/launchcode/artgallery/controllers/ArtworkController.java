@@ -22,7 +22,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String renderCollectionPage(Model model) {
+    public String renderArtworksPage(Model model) {
         List<String> artworkList = new ArrayList<>(artworks.values());
         model.addAttribute("artworkList", artworkList);
         return "artworks/index";
