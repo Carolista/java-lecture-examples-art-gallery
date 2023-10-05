@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+    <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/artworks/add">Add Artwork</a>
+            <!-- TODO: Add link to /delete -->
+        </div>
+    </div>
+    <main>
+        <h2>ARTWORKS</h2>
+
+        <p th:unless="${artworkList} and ${artworkList.size()}">
+            <em>No artworks to display.</em>
+        </p>
+
+        <th:block th:if="${artworkList} and ${artworkList.size()}">
+            <!-- TODO: Add columns for ID and Artist and update references to object -->
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                </tr>
+                </thead>
+                <tr th:each="artwork : ${artworkList}">
+                    <td th:text="${artwork}"></td>
+                </tr>
+            </table>
+        </th:block>
+    </main>
+</body>
+</html>
