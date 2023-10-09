@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+    <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/artworks">View List of Artworks</a>
+            <a class="navlink" href="/artworks/delete">Delete Artwork</a>
+        </div>
+    </div>
+    <main>
+        <h3>Add Artwork</h3>
+        <form action='/artworks/add' method='POST'>
+
+            <!-- TODO: Once the Errors object is available, display a general message if there are errors -->
+            <!-- Remove this later when using more specific errors below -->
+
+            <!-- TODO: Use th:field on inputs to bind to the artwork object and its fields in the model -->
+            <!-- TODO: Use th:for on labels -->
+            <!-- TODO: Use th:errors on error message elements below the inputs for title and artist -->
+            <div class="form-item">
+                <label for="title">Title</label>
+                <input id="title" type="text" name="title" />
+            </div>
+            <div class="form-item">
+                <label for="artist">Artist</label>
+                <input id="artist" type="text" name="artist" />
+            </div>
+            <!-- TODO: Once the style enum has been created, add a select input using its values -->
+            <!-- Add an empty option with a value of empty string -->
+            <!-- For remaining options, loop over the list of styles passed in from the controller -->
+            <button type='submit'>Add</button>
+        </form>
+    </main>
+</body>
+</html>
+
+<!--
+    TEST DATA:
+    Mona Lisa, Leonardo da Vinci, Renaissance
+    Girl with a Pearl Earring, Johannes Vermeer, Baroque
+    The Starry Night, Vincent van Gogh, Pointillism
+    The Kiss, Gustav Klimt, Art Nouveau
+    The Persistence of Memory, Salvador Dali, Surrealism
+    Water Lilies, Claude Monet, Impressionism
+-->
