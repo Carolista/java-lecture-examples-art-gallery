@@ -1,6 +1,7 @@
-package com.launchcode.artgallery.models;
+package org.launchcode.artgallery.models;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
@@ -14,23 +15,21 @@ public class Artwork {
     @NotBlank(message = "Title is required.")
     private String title;
 
-    @Size(min = 2, max = 30, message = "Artist name must be 2-30 characters long.")
+    @Size(min = 2, max = 30, message = "Artist's name must be 2-30 characters long.")
     private String artist;
 
-    private String period;
-
+    @NotNull(message = "Style is required.")
     private Style style;
 
     public Artwork() {
         this.id = nextId;
-        nextId++;
+        nextId++; // This means only even id numbers will show up in table
     }
 
-    public Artwork(String title, String artist, String period, Style style) {
-        this(); // add id and increment nextId
+    public Artwork(String title, String artist, Style style) {
+        this(); // Call no-arg constructor to set id and increment nextId
         this.title = title;
         this.artist = artist;
-        this.period = period;
         this.style = style;
     }
 
@@ -54,14 +53,6 @@ public class Artwork {
         this.artist = artist;
     }
 
-    public String getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(String period) {
-        this.period = period;
-    }
-
     public Style getStyle() {
         return style;
     }
@@ -72,7 +63,7 @@ public class Artwork {
 
     @Override
     public String toString() {
-        return title + " (" + artist + ", " + period + ")";
+        return title + " (" + artist + ")";
     }
 
     @Override

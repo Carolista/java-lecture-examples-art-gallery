@@ -1,10 +1,10 @@
-package com.launchcode.artgallery.data;
+package org.launchcode.artgallery.data;
 
-import com.launchcode.artgallery.models.Artwork;
+import org.launchcode.artgallery.models.Artwork;
 
 import java.util.*;
 
-public class CollectionData {
+public class ArtworksData {
 
     private static final Map<Integer, Artwork> artCollection = new HashMap<>();
 

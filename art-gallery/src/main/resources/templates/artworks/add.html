@@ -3,32 +3,35 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
     <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/artworks">View List of Artworks</a>
+            <a class="navlink" href="/artworks/delete">Delete Artwork</a>
+        </div>
+    </div>
     <main>
-        <form action='/collection/add' method='POST'>
-            <h3>Add Artwork to Collection</h3>
-
+        <h3>Add Artwork</h3>
+        <form action='/artworks/add' method='POST'>
             <div class="form-item">
-                <label for="title">Title</label>
+                <label th:for="${artwork.title}">Title</label>
                 <input th:field="${artwork.title}" />
                 <p class="error" th:errors="${artwork.title}"></p>
             </div>
             <div class="form-item">
-                <label for="artist">Artist</label>
+                <label th:for="${artwork.artist}">Artist</label>
                 <input th:field="${artwork.artist}" />
                 <p class="error" th:errors="${artwork.artist}"></p>
             </div>
             <div class="form-item">
-                <label for="period">Period</label>
-                <input th:field="${artwork.period}" />
-            </div>
-            <div class="form-item">
-                <label for="style">Style</label>
+                <label th:for="${artwork.style}">Style</label>
                 <select th:field="${artwork.style}">
+                    <option value=""></option>
                     <option th:each="style : ${styles}"
                             th:value="${style}"
                             th:text="${style.displayName}"
                     ></option>
                 </select>
+                <p class="error" th:errors="${artwork.style}"></p>
             </div>
             <button type='submit'>Add</button>
         </form>
@@ -37,12 +40,11 @@
 </html>
 
 <!--
-
     TEST DATA:
-    The Kiss, Gustav Klimt, 1908, Art Nouveau
-    Girl with a Pearl Earring, Johannes Vermeer, 1665, Baroque
-    Water Lilies, Claude Monet, 1919, Impressionism
-    The Starry Night, Vincent van Gogh, 1889, Pointillism
-    Mona Lisa, Leonardo da Vinci, 1503-1506, Renaissance
-
+    Mona Lisa, Leonardo da Vinci, Renaissance
+    Girl with a Pearl Earring, Johannes Vermeer, Baroque
+    The Starry Night, Vincent van Gogh, Pointillism
+    The Kiss, Gustav Klimt, Art Nouveau
+    The Persistence of Memory, Salvador Dali, Surrealism
+    Water Lilies, Claude Monet, Impressionism
 -->

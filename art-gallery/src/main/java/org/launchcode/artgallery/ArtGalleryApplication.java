@@ -1,4 +1,4 @@
-package com.launchcode.artgallery;
+package org.launchcode.artgallery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

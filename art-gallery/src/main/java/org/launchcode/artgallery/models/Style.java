@@ -1,4 +1,4 @@
-package com.launchcode.artgallery.models;
+package org.launchcode.artgallery.models;
 
 public enum Style {
 
@@ -6,7 +6,8 @@ public enum Style {
     BAROQUE("Baroque"),
     IMPRESSIONISM("Impressionism"),
     POINTILLISM("Pointillism"),
-    RENAISSANCE("Renaissance");
+    RENAISSANCE("Renaissance"),
+    SURREALISM("Surrealism");
 
     private final String displayName;
 
