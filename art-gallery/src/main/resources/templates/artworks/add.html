@@ -13,17 +13,17 @@
         <h3>Add Artwork</h3>
         <form action='/artworks/add' method='POST'>
             <div class="form-item">
-                <label th:for="${artwork.title}">Title</label>
+                <label th:for="title">Title</label>
                 <input th:field="${artwork.title}" />
                 <p class="error" th:errors="${artwork.title}"></p>
             </div>
             <div class="form-item">
-                <label th:for="${artwork.artist}">Artist</label>
+                <label th:for="artist">Artist</label>
                 <input th:field="${artwork.artist}" />
                 <p class="error" th:errors="${artwork.artist}"></p>
             </div>
             <div class="form-item">
-                <label th:for="${artwork.style}">Style</label>
+                <label th:for="style">Style</label>
                 <select th:field="${artwork.style}">
                     <option value=""></option>
                     <option th:each="style : ${styles}"
