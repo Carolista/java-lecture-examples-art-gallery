@@ -1,9 +1,11 @@
-package com.launchcode.artgallery.models;
+package org.launchcode.artgallery.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
@@ -12,25 +14,23 @@ import java.util.Objects;
 public class Artwork {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @NotBlank(message = "Title is required.")
     private String title;
 
-    @Size(min = 2, max = 30, message = "Artist name must be 2-30 characters long.")
+    @Size(min = 2, max = 30, message = "Artist's name must be 2-30 characters long.")
     private String artist;
 
-    private String yearCreated;
-
+    @NotNull(message = "Style is required.")
     private Style style;
 
     public Artwork() {}
 
-    public Artwork(String title, String artist, String yearCreated, Style style) {
+    public Artwork(String title, String artist, Style style) {
         this.title = title;
         this.artist = artist;
-        this.yearCreated = yearCreated;
         this.style = style;
     }
 
@@ -54,14 +54,6 @@ public class Artwork {
         this.artist = artist;
     }
 
-    public String getYearCreated() {
-        return yearCreated;
-    }
-
-    public void setYearCreated(String yearCreated) {
-        this.yearCreated = yearCreated;
-    }
-
     public Style getStyle() {
         return style;
     }
@@ -72,7 +64,7 @@ public class Artwork {
 
     @Override
     public String toString() {
-        return title + " (" + artist + ", " + yearCreated + ")";
+        return title + " (" + artist + ")";
     }
 
     @Override

@@ -11,30 +11,28 @@
     </div>
     <main>
         <form action='/artworks/add' method='POST'>
-            <h3>Add Artwork to Collection</h3>
+            <h3>Add Artwork</h3>
 
             <div class="form-item">
-                <label for="title">Title</label>
+                <label th:for="title">Title</label>
                 <input th:field="${artwork.title}" />
                 <p class="error" th:errors="${artwork.title}"></p>
             </div>
             <div class="form-item">
-                <label for="artist">Artist</label>
+                <label th:for="artist">Artist</label>
                 <input th:field="${artwork.artist}" />
                 <p class="error" th:errors="${artwork.artist}"></p>
             </div>
             <div class="form-item">
-                <label for="yearCreated">Year Created</label>
-                <input th:field="${artwork.yearCreated}" />
-            </div>
-            <div class="form-item">
-                <label for="style">Style</label>
+                <label th:for="style">Style</label>
                 <select th:field="${artwork.style}">
+                    <option value=""></option>
                     <option th:each="style : ${styles}"
                             th:value="${style}"
                             th:text="${style.displayName}"
                     ></option>
                 </select>
+                <p class="error" th:errors="${artwork.style}"></p>
             </div>
             <button type='submit'>Add</button>
         </form>

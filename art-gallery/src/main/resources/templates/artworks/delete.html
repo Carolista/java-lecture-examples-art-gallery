@@ -12,7 +12,7 @@
     <main>
         <form action='/artworks/delete' method='POST'>
             <h3>Delete Artwork from Collection</h3>
-            <th:block th:each="artwork : ${artworks}">
+            <th:block th:each="artwork : ${artworkList}">
                 <label>
                     <input type="checkbox" name="artworkIds" th:value="${artwork.id}" />
                     <span th:text="${artwork}"></span> <!-- implicitly calls toString() -->

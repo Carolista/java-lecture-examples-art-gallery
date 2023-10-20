@@ -48,6 +48,7 @@ h2 {
     width: auto;
     border-radius: 2px;
     padding: 5px 8px;
+    margin-bottom: 20px;
 }
 
 h3 {
@@ -56,13 +57,23 @@ h3 {
     font-weight: 700;
 }
 
+h5 {
+    font-weight: bold;
+}
+
 #mag {
     font-family: 'Kodchasan', sans-serif;
     font-size: 30px;
-    font-weight: 200;
+    font-weight: 400;
     text-transform: uppercase;
     margin: 0;
     padding: 0;
+}
+
+#admin-portal > a {
+    color: inherit;
+    font-family: inherit;
+    text-decoration: none;
 }
 
 .nav {
@@ -82,6 +93,10 @@ a {
     text-decoration: none;
 }
 
+a:hover, a:active {
+    color: #B95A0A;
+}
+
 a.navlink:link, a.navlink:visited {
     color: white;
     font-weight: 400;
@@ -98,11 +113,7 @@ a.navlink:hover, a.navlink:active {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-bottom: 12px;
-}
-
-input, select {
-    max-width: 200px;
+    margin-bottom: 20px;
 }
 
 button {
@@ -134,3 +145,6 @@ button.delete {
     font-weight: bold;
 }
 
+textarea {
+    min-height: 200px;
+}
