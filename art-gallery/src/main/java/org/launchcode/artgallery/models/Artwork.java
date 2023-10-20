@@ -1,6 +1,7 @@
-package com.launchcode.artgallery.models;
+package org.launchcode.artgallery.models;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
@@ -8,19 +9,21 @@ import java.util.Objects;
 // TODO: Convert model to an Entity (persistent class)
 public class Artwork {
 
+    // TODO: Delete since Hibernate will assign id
+    private static int nextId = 1;
+
     // TODO: Add annotations so Hibernate knows to generate id as a primary key
     private int id;
-    private static int nextId;
 
     @NotBlank(message = "Title is required.")
     private String title;
 
-    @Size(min = 2, max = 30, message = "Artist name must be 2-30 characters long.")
+    @Size(min = 2, max = 30, message = "Artist's name must be 2-30 characters long.")
     private String artist;
 
-    private String yearCreated;
-
+    @NotNull(message = "Style is required.")
     private Style style;
+
 
     // TODO: Remove nextId & id related code from constructors
     public Artwork() {
@@ -32,7 +35,6 @@ public class Artwork {
         this();
         this.title = title;
         this.artist = artist;
-        this.yearCreated = yearCreated;
         this.style = style;
     }
 
@@ -56,14 +58,6 @@ public class Artwork {
         this.artist = artist;
     }
 
-    public String getYearCreated() {
-        return yearCreated;
-    }
-
-    public void setYearCreated(String yearCreated) {
-        this.yearCreated = yearCreated;
-    }
-
     public Style getStyle() {
         return style;
     }
@@ -74,7 +68,7 @@ public class Artwork {
 
     @Override
     public String toString() {
-        return title + " (" + artist + ", " + yearCreated + ")";
+        return title + " (" + artist + ")";
     }
 
     @Override

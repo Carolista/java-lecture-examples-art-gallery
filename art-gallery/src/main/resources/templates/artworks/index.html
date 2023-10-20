@@ -11,27 +11,29 @@
     </div>
     <main>
         <h2>ARTWORKS</h2>
-        <p th:unless="${artworks} and ${artworks.size()}">
-            <em>No contents to display.</em>
+
+        <p th:unless="${artworkList} and ${artworkList.size()}">
+            <em>No artworks to display.</em>
         </p>
-        <table class="table table-striped">
-            <thead>
+
+        <th:block th:if="${artworkList} and ${artworkList.size()}">
+            <table class="table table-striped">
+                <thead>
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
                     <th>Artist</th>
-                    <th>Year Created</th>
                     <th>Style</th>
                 </tr>
-            </thead>
-            <tr th:each="artwork : ${artworks}">
-                <td th:text="${artwork.id}"></td>
-                <td th:text="${artwork.title}"></td>
-                <td th:text="${artwork.artist}"></td>
-                <td th:text="${artwork.yearCreated}"></td>
-                <td th:text="${artwork.style.displayName}"></td>
-            </tr>
-        </table>
+                </thead>
+                <tr th:each="artwork : ${artworkList}">
+                    <td th:text="${artwork.id}"></td>
+                    <td th:text="${artwork.title}"></td>
+                    <td th:text="${artwork.artist}"></td>
+                    <td th:text="${artwork.style.displayName}"></td>
+                </tr>
+            </table>
+        </th:block>
     </main>
 </body>
 </html>
