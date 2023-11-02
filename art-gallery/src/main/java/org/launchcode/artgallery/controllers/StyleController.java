@@ -1,8 +1,7 @@
-package com.launchcode.artgallery.controllers;
+package org.launchcode.artgallery.controllers;
 
-import com.launchcode.artgallery.data.StyleRepository;
-import com.launchcode.artgallery.models.Artist;
-import com.launchcode.artgallery.models.Style;
+import org.launchcode.artgallery.data.StyleRepository;
+import org.launchcode.artgallery.models.Style;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +19,7 @@ public class StyleController {
     // Corresponds to http://localhost:8080/styles
     @GetMapping
     public String displayStylesPage(Model model) {
+        // TODO #3: Sort styles using a comparator class
         model.addAttribute("styles", styleRepository.findAll());
         return "/styles/index";
     }

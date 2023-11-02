@@ -12,12 +12,11 @@
 </head>
 <body>
     <header th:fragment="header">
-        <div id="mag"><b>Midtown</b> Art Gallery</div>
+        <div id="mag">Midtown Art Gallery</div>
         <div class="nav">
-            <span class="bold">ADMIN PORTAL</span>
+            <span id="admin-portal" class="bold"><a href="/">ADMIN PORTAL</a></span> | &nbsp;
             <a class="navlink" href="/artists">Artists</a>
             <a class="navlink" href="/artworks">Artworks</a>
-            <span class="faux-link">Exhibitions</span>
             <a class="navlink" href="/styles">Styles</a>
         </div>
     </header>
