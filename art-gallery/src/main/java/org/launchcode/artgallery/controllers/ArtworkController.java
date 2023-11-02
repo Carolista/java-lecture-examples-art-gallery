@@ -1,10 +1,10 @@
-package com.launchcode.artgallery.controllers;
+package org.launchcode.artgallery.controllers;
 
-import com.launchcode.artgallery.data.ArtistRepository;
-import com.launchcode.artgallery.data.ArtworkRepository;
-import com.launchcode.artgallery.models.Artist;
-import com.launchcode.artgallery.models.Artwork;
-import com.launchcode.artgallery.models.Style;
+import org.launchcode.artgallery.data.ArtistRepository;
+import org.launchcode.artgallery.data.ArtworkRepository;
+import org.launchcode.artgallery.models.Artist;
+import org.launchcode.artgallery.models.Artwork;
+import org.launchcode.artgallery.models.Style;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.launchcode.artgallery.controllers;
+package org.launchcode.artgallery.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
