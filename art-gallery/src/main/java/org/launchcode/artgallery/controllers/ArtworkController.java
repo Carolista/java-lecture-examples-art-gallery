@@ -1,9 +1,9 @@
-package com.launchcode.artgallery.controllers;
+package org.launchcode.artgallery.controllers;
 
-import com.launchcode.artgallery.data.ArtistRepository;
-import com.launchcode.artgallery.data.ArtworkRepository;
-import com.launchcode.artgallery.data.StyleRepository;
-import com.launchcode.artgallery.models.*;
+import org.launchcode.artgallery.data.ArtistRepository;
+import org.launchcode.artgallery.data.ArtworkRepository;
+import org.launchcode.artgallery.data.StyleRepository;
+import org.launchcode.artgallery.models.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +30,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String displayArtworksPage(@RequestParam(required = false) Integer artistId,
+    public String renderArtworksPage(@RequestParam(required = false) Integer artistId,
                                       @RequestParam(required = false) Integer styleId,
                                       Model model) {
         if (artistId != null) {
@@ -53,7 +53,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/details/1
     @GetMapping("/details/{artworkId}")
-    public String displayArtworkDetailsPage(@PathVariable int artworkId, Model model) {
+    public String renderArtworkDetailsPage(@PathVariable int artworkId, Model model) {
         Optional<Artwork> result = artworkRepository.findById(artworkId);
         if (result.isPresent()) {
             Artwork artwork = result.get();
@@ -66,7 +66,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
-    public String displayAddArtForm(Model model) {
+    public String renderAddArtForm(Model model) {
         List<Artist> artists = (List<Artist>) artistRepository.findAll();
         Collections.sort(artists, new ArtistComparator());
         List<Style> styles = (List<Style>) styleRepository.findAll();
@@ -78,16 +78,16 @@ public class ArtworkController {
     }
 
     @PostMapping("/add")
-    public String processAddArtForm(@ModelAttribute @Valid Artwork artwork,
+    public String renderAddArtForm(@ModelAttribute @Valid Artwork artwork,
                                     Errors errors,
                                     @RequestParam(required = false) List<Integer> styleIds,
                                     Model model) {
         if (errors.hasErrors()) {
             System.out.println(errors.getAllErrors());
             List<Artist> artists = (List<Artist>) artistRepository.findAll();
-            Collections.sort(artists, new ArtistComparator());
+            artists.sort(new ArtistComparator());
             List<Style> styles = (List<Style>) styleRepository.findAll();
-            Collections.sort(styles, new StyleComparator());
+            styles.sort(new StyleComparator());
             model.addAttribute("artists", artists);
             model.addAttribute("styles", styles);
             return "artworks/add";

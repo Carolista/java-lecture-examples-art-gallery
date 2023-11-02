@@ -11,15 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@200;400;700&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header th:fragment="header">
-        <div id="mag"><b>Midtown</b> Art Gallery</div>
-        <div class="nav">
-            <span class="bold">ADMIN PORTAL</span>
-            <a class="navlink" href="/artists">Artists</a>
-            <a class="navlink" href="/artworks">Artworks</a>
-            <span class="faux-link">Exhibitions</span>
-            <a class="navlink" href="/styles">Styles</a>
-        </div>
-    </header>
+<header th:fragment="header">
+    <div id="mag">Midtown Art Gallery</div>
+    <div class="nav">
+        <span id="admin-portal" class="bold"><a href="/">ADMIN PORTAL</a></span> | &nbsp;
+        <a class="navlink" href="/artists">Artists</a>
+        <a class="navlink" href="/artworks">Artworks</a>
+        <a class="navlink" href="/styles">Styles</a>
+    </div>
+</header>
 </body>
 </html>

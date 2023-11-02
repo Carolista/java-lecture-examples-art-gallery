@@ -1,8 +1,7 @@
-package com.launchcode.artgallery.models;
+package org.launchcode.artgallery.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;

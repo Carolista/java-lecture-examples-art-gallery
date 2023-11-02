@@ -1,4 +1,4 @@
-package com.launchcode.artgallery.controllers;
+package org.launchcode.artgallery.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,8 @@ public class GalleryController {
 
     // Corresponds to http://localhost:8080
     @GetMapping("/")
-    public String displayHomePage() {
+    public String renderHomePage(Model model) {
+        model.addAttribute("headingText", "Welcome");
         return "index";
     }
 
