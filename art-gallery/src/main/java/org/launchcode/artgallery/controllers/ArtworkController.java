@@ -30,7 +30,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String displayArtworksPage(@RequestParam(required = false) Integer artistId,
+    public String renderArtworksPage(@RequestParam(required = false) Integer artistId,
                                       @RequestParam(required = false) Integer styleId,
                                       Model model) {
         if (artistId != null) {
@@ -53,7 +53,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/details/1
     @GetMapping("/details/{artworkId}")
-    public String displayArtworkDetailsPage(@PathVariable int artworkId, Model model) {
+    public String renderArtworkDetailsPage(@PathVariable int artworkId, Model model) {
         Optional<Artwork> result = artworkRepository.findById(artworkId);
         if (result.isPresent()) {
             Artwork artwork = result.get();
@@ -66,7 +66,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
-    public String displayAddArtForm(Model model) {
+    public String renderAddArtForm(Model model) {
         // TODO #3: Create comparator classes to sort artists and styles
         model.addAttribute("artwork", new Artwork());
         model.addAttribute("artists", artistRepository.findAll());
@@ -92,7 +92,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/delete
     @GetMapping("/delete")
-    public String displayDeleteArtForm(Model model) {
+    public String renderDeleteArtForm(Model model) {
         model.addAttribute("artworks", artworkRepository.findAll());
         return "artworks/delete";
     }

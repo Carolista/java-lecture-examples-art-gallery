@@ -18,7 +18,7 @@ public class StyleController {
 
     // Corresponds to http://localhost:8080/styles
     @GetMapping
-    public String displayStylesPage(Model model) {
+    public String renderStylesPage(Model model) {
         // TODO #3: Sort styles using a comparator class
         model.addAttribute("styles", styleRepository.findAll());
         return "/styles/index";
@@ -26,7 +26,7 @@ public class StyleController {
 
     // Corresponds to http://localhost:8080/styles/add
     @GetMapping("/add")
-    public String displayAddStyleForm(Model model) {
+    public String renderAddStyleForm(Model model) {
         model.addAttribute("style", new Style());
         return "styles/add";
     }
