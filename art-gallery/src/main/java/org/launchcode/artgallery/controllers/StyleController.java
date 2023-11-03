@@ -22,7 +22,7 @@ public class StyleController {
 
     // Corresponds to http://localhost:8080/styles
     @GetMapping
-    public String displayStylesPage(Model model) {
+    public String renderStylesPage(Model model) {
         List<Style> styles = (List<Style>) styleRepository.findAll();
         styles.sort(new StyleComparator());
         model.addAttribute("styles", styles);

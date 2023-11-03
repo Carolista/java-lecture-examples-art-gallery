@@ -78,7 +78,7 @@ public class ArtworkController {
     }
 
     @PostMapping("/add")
-    public String renderAddArtForm(@ModelAttribute @Valid Artwork artwork,
+    public String processAddArtForm(@ModelAttribute @Valid Artwork artwork,
                                     Errors errors,
                                     @RequestParam(required = false) List<Integer> styleIds,
                                     Model model) {
@@ -103,7 +103,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/delete
     @GetMapping("/delete")
-    public String displayDeleteArtForm(Model model) {
+    public String renderDeleteArtForm(Model model) {
         model.addAttribute("artworks", artworkRepository.findAll());
         return "artworks/delete";
     }
