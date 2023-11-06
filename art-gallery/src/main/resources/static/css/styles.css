@@ -20,7 +20,7 @@ header {
 #admin-bar {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-end;
     background-color: #DA8034;
     color: white;
@@ -64,10 +64,16 @@ h5 {
 #mag {
     font-family: 'Kodchasan', sans-serif;
     font-size: 30px;
-    font-weight: 200;
+    font-weight: 400;
     text-transform: uppercase;
     margin: 0;
     padding: 0;
+}
+
+#admin-portal > a {
+    color: inherit;
+    font-family: inherit;
+    text-decoration: none;
 }
 
 .nav {
