@@ -1,4 +1,4 @@
-package com.launchcode.artgallery.controllers;
+package org.launchcode.artgallery.controllers;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -16,6 +16,7 @@ public class GalleryController {
 
     @GetMapping("/welcome")
     public String displayHomePage(Model model, HttpSession session) {
+        model.addAttribute("headingText", "Welcome");
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "index";
     }

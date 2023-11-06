@@ -1,11 +1,11 @@
-package com.launchcode.artgallery.controllers;
+package org.launchcode.artgallery.controllers;
 
-import com.launchcode.artgallery.data.ArtistRepository;
-import com.launchcode.artgallery.data.ArtworkRepository;
-import com.launchcode.artgallery.data.StyleRepository;
-import com.launchcode.artgallery.models.*;
+import org.launchcode.artgallery.data.ArtistRepository;
+import org.launchcode.artgallery.data.ArtworkRepository;
+import org.launchcode.artgallery.data.StyleRepository;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.launchcode.artgallery.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

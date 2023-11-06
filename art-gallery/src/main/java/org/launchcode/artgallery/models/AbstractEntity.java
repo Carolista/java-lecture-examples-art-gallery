@@ -1,4 +1,4 @@
-package com.launchcode.artgallery.models;
+package org.launchcode.artgallery.models;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

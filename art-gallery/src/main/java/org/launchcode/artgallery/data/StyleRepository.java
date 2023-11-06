@@ -1,6 +1,6 @@
-package com.launchcode.artgallery.data;
+package org.launchcode.artgallery.data;
 
-import com.launchcode.artgallery.models.Style;
+import org.launchcode.artgallery.models.Style;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
