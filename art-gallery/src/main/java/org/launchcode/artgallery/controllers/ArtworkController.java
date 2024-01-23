@@ -22,7 +22,7 @@ public class ArtworkController {
     }};
 
     // TODO: Convert this to use a template, index.html
-    // TODO: Pass list of values from map, artworkList, to template using Model class
+    // TODO: Pass list of values from map, artworksList, to template using Model class
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
     public String renderArtworksPage() {
