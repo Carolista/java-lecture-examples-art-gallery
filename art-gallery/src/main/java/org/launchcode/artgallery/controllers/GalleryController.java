@@ -1,8 +1,10 @@
 package org.launchcode.artgallery.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class GalleryController {
@@ -15,5 +17,81 @@ public class GalleryController {
                 "<p>Welcome! View our <a href='/artworks'>collection</a> of fine art.</p>";
     }
 
-    /* All handlers initially coded below were moved to the ArtworkController class */
+    /* All handlers initially coded below were refactored in the ArtworkController class */
+
+//    private static int nextId = 6;
+
+//    private static final Map<Integer, String> artworks = new HashMap<>() {{
+//        put(1, "Girl with a Pearl Earring");
+//        put(2, "Mona Lisa");
+//        put(3, "The Birth of Venus");
+//        put(4, "The Persistence of Memory");
+//        put(5, "The Starry Night");
+//    }};
+
+    // Corresponds to http://localhost:8080/artworks
+//    @GetMapping("/artworks")
+//    @ResponseBody
+//    public String renderArtworksHomePage() {
+//        StringBuilder artworksList = new StringBuilder();
+//        for (int artworkId : artworks.keySet()) {
+//            String artwork = artworks.get(artworkId);
+//            artworksList.append("<li><a href='/artworks/details/").append(artworkId).append("'>").append(artwork).append("</a></li>");
+//        }
+//        return "<html>" +
+//                "<body>" +
+//                "<h2>ARTWORKS</h2>" +
+//                "<ul>" +
+//                artworksList +
+//                "</ul>" +
+//                "<p>Click <a href='/artworks/add'>here</a> to add another artwork.</p>" +
+//                "</body>" +
+//                "</html>";
+//    }
+
+    // Corresponds to http://localhost:8080/artworks/add
+//    @GetMapping("/artworks/add")
+//    @ResponseBody
+//    public String renderAddArtworkForm() {
+//        return "<html>" +
+//                "<body>" +
+//                "<form action='/artworks/results' method='GET'>" +
+//                "<p>Enter the name of a new work of art:</p>" +
+//                "<input type='text' name='artwork' />" +
+//                "<button type='submit'>Submit</button>" +
+//                "</form>" +
+//                "</body>" +
+//                "</html>";
+//    }
+
+    // Use a query parameter for dynamic results
+    // Corresponds to http://localhost:8080/artworks/results?artwork=The+Starry+Night (for example)
+//    @GetMapping("artworks/results")
+//    @ResponseBody
+//    public String processAddArtworkForm(@RequestParam String artwork) {
+//        artworks.put(nextId, artwork);
+//        nextId++;
+//        return "<html>" +
+//                "<body>" +
+//                "<h3>ARTWORK ADDED</h3>" +
+//                "<p>You have successfully added " + artwork + " to the collection.</p>" +
+//                "<p><a href='/artworks/add'>Add another artwork</a> or <a href='/artworks'>view the updated list</a> of artworks.</p>" +
+//                "</body>" +
+//                "</html>";
+//    }
+
+    // Use a path parameter for dynamic results
+    // Corresponds to http://localhost:8080/artworks/details/3 (for example)
+//    @GetMapping("/artworks/details/{artworkId}")
+//    @ResponseBody
+//    public String displayArtworkDetails(@PathVariable int artworkId) {
+//        return "<html>" +
+//                "<body>" +
+//                "<h3>Artwork</h3>" +
+//                "<p><b>ID:</b> " + artworkId + "</p>" +
+//                "<p><b>Name:</b> " + artworks.get(artworkId) + "</p>" +
+//                "</body>" +
+//                "</html>";
+//    }
+
 }
