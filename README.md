@@ -2,7 +2,7 @@
 
 #### Lecture examples for chapters 9-10 and 13-20: a Spring Boot Java application with Thymeleaf and MySQL
 
-> IMPORTANT: When you fork, un-check the "main only" box to ensure you have a copy of the `solution` branch as well
+> IMPORTANT: When you fork, un-check the "Copy the main branch only" box to ensure you have a copy of all starter code and solution branches as well
 
 Use individual branches to `git checkout` **starter code** or **solution** for each class. 
 
