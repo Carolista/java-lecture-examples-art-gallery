@@ -2,6 +2,8 @@
 
 #### Lecture examples for chapters 9-10 and 13-20: a Spring Boot Java application with Thymeleaf and MySQL
 
+> IMPORTANT: When you fork, un-check the "main only" box to ensure you have a copy of the `solution` branch as well
+
 Use individual branches to `git checkout` **starter code** or **solution** for each class. 
 
 _Note: There is no starter code for class 8 because the project is meant to be created with Spring Initializr as part of the lecture example._
