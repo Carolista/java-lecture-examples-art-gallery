@@ -1,6 +1,6 @@
 # java-lecture-examples-art-gallery
 
-#### Lecture examples for chapters 9-10, 13-15, and 17-20: a Spring Boot Java application with Thymeleaf and MySQL
+#### Lecture examples for chapters 9-10 and 13-20: a Spring Boot Java application with Thymeleaf and MySQL
 
 Use individual branches to `git checkout` **starter code** or **solution** for each class. 
 
