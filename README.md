@@ -6,7 +6,7 @@
 
 Use individual branches to `git checkout` **starter code** or **solution** for each class. 
 
-_Note: There is no starter code for class 8 because the project is meant to be created with Spring Initializr as part of the lecture example._
+_Note: There is no starter code for chapter 10 because the project is meant to be created with Spring Initializr as part of the lecture example._
 
 ### HOW TO PULL DOWN CHANGES AFTER FORKING
 
