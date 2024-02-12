@@ -14,6 +14,7 @@ public enum Style {
     LANDSCAPE_PHOTOGRAPHY("Landscape Photography"),
     MAXIMALIST_PHOTOGRAPHY("Maximalist Photography"),
     PENCIL_ILLUSTRATION("Pencil Illustration"),
+    PERFORMANCE("Performance"),
     PHOTOREALISM("Photorealism"),
     POETRY("Poetry"),
     REALISM("Realism"),
