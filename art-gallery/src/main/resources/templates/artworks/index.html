@@ -33,7 +33,7 @@
                     <td th:text="${artwork.yearCreated}"></td>
                     <td>
                         <a th:href="${'/artworks/details/' + artwork.id}">
-                            <img th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" width="50px" />
+                            <img th:src="${'https://drive.google.com/thumbnail?id=' + artwork.imageId}" width="50px" />
                         </a>
                     </td>
                 </tr>
