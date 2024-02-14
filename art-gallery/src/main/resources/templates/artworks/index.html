@@ -35,7 +35,7 @@
                 <td th:text="${artwork.style.displayName}"></td>
                 <td>
                     <a th:href="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" target="_blank">
-                        <img th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.imageId}" width="50px" />
+                        <img th:src="${'https://drive.google.com/thumbnail?id=' + artwork.imageId}" width="50px" />
                     </a>
                 </td>
             </tr>
