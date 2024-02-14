@@ -26,7 +26,7 @@ public class Artwork extends AbstractEntity {
 
     public Artwork() {}
 
-    // TODO #1: update constructor with change to artist field
+    // TODO #1: Update constructor with change to artist field
     public Artwork(String title, String artist, String yearCreated, String media, Style style, String imageId) {
         this.title = title;
         this.artist = artist;
@@ -44,11 +44,11 @@ public class Artwork extends AbstractEntity {
         this.title = title;
     }
 
+    // TODO #1: Update getter & setter with Artist type
     public String getArtist() {
         return artist;
     }
 
-    // TODO #1: Update with Artist type
     public void setArtist(String artist) {
         this.artist = artist;
     }
