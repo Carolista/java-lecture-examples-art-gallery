@@ -14,17 +14,17 @@
         <h3>Add Artist</h3>
 
         <div class="form-item">
-            <label for="firstName">First Name</label>
+            <label th:for="firstName">First Name</label>
             <input th:field="${artist.firstName}" />
             <p class="error" th:errors="${artist.firstName}"></p>
         </div>
         <div class="form-item">
-            <label for="lastName">Last Name</label>
+            <label th:for="lastName">Last Name</label>
             <input th:field="${artist.lastName}" />
             <p class="error" th:errors="${artist.lastName}"></p>
         </div>
         <div class="form-item">
-            <label for="location">Location</label>
+            <label th:for="location">Location</label>
             <input th:field="${artist.location}" />
         </div>
         <button type='submit'>Add</button>

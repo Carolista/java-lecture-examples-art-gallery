@@ -25,12 +25,14 @@ public class ArtworkController {
     private ArtistRepository artistRepository;
 
     // Corresponds to http://localhost:8080/artworks
+    // or http://localhost:8080/artworks?artistId=1 (for example) if artistId is present
     @GetMapping("")
     public String displayArtworksPage(@RequestParam(required = false) Integer artistId, Model model) {
         if (artistId != null) {
             Optional<Artist> result = artistRepository.findById(artistId);
             if (result.isPresent()) {
                 Artist artist = result.get();
+                model.addAttribute("artist", artist);
                 model.addAttribute("artworks", artist.getArtworks());
             }
         } else {

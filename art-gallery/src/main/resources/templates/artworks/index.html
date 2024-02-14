@@ -10,7 +10,7 @@
         </div>
     </div>
     <main>
-        <h2>ARTWORKS</h2>
+        <h2>ARTWORKS<th:block th:if="${artist}"> BY <span th:text="${artist}"></span></th:block></h2>
         <p th:unless="${artworks} and ${artworks.size()}">
             <em>No artworks to display.</em>
         </p>
