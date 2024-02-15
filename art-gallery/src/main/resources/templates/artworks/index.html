@@ -5,6 +5,7 @@
     <header th:replace="~{fragments :: header}"></header>
     <div id="admin-bar">
         <div class="nav">
+            <a th:if="${artist} or ${styleName}" class="navlink" href="/artworks">View All Artworks</a>
             <a class="navlink" href="/artworks/add">Add Artwork</a>
             <a class="navlink" href="/artworks/delete">Delete Artwork</a>
         </div>
@@ -13,6 +14,7 @@
         <h2>
             ARTWORKS
             <th:block th:if="${artist}"> BY <span th:text="${artist}"></span></th:block>
+            <th:block th:if="${styleName}"> - <span th:text="${styleName}"></span></th:block>
         </h2>
         <p th:unless="${artworks} and ${artworks.size()}">
             <em>No artworks to display.</em>

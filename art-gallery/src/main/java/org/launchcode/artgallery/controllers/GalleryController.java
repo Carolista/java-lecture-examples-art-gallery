@@ -9,8 +9,7 @@ public class GalleryController {
 
     // Corresponds to http://localhost:8080
     @GetMapping("/")
-    public String renderHomePage(Model model) {
-        model.addAttribute("headingText", "Welcome");
+    public String renderHomePage() {
         return "index";
     }
 
