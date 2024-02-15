@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class GalleryController {
 
     // Corresponds to http://localhost:8080
-    public String renderHomePage(Model model) {
-        model.addAttribute("headingText", "Welcome");
+    public String renderHomePage() {
         return "index";
     }
 

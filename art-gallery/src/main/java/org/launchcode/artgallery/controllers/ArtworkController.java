@@ -28,22 +28,16 @@ public class ArtworkController {
     @Autowired
     private StyleRepository styleRepository;
 
+    // TODO #2: Add optional query param styleId to filter artworks by style
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String renderArtworksPage(@RequestParam(required = false) Integer artistId,
-                                      @RequestParam(required = false) Integer styleId,
-                                      Model model) {
+    public String renderArtworksPage(@RequestParam(required = false) Integer artistId, Model model) {
         if (artistId != null) {
             Optional<Artist> result = artistRepository.findById(artistId);
             if (result.isPresent()) {
                 Artist artist = result.get();
+                model.addAttribute("artist", artist);
                 model.addAttribute("artworks", artist.getArtworks());
-            }
-        } else if (styleId != null) {
-            Optional<Style> result = styleRepository.findById(styleId);
-            if (result.isPresent()) {
-                Style style = result.get();
-                model.addAttribute("artworks", style.getArtworks());
             }
         } else {
             model.addAttribute("artworks", artworkRepository.findAll());

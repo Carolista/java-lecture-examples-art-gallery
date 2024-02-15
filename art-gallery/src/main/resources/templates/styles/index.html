@@ -20,13 +20,11 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th></th>
             </tr>
             </thead>
             <tr th:each="style : ${styles}">
                 <td th:text="${style.id}"></td>
                 <td th:text="${style.name}"></td>
-                <td><a th:href="${'/artworks?styleId=' + style.id}">View all artwork in this style</a></td>
             </tr>
         </table>
     </th:block>
