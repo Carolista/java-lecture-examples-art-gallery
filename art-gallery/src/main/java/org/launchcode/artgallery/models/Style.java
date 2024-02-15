@@ -13,6 +13,7 @@ public enum Style {
     INK_ILLUSTRATION("Ink Illustration"),
     LANDSCAPE_PHOTOGRAPHY("Landscape Photography"),
     MAXIMALIST_PHOTOGRAPHY("Maximalist Photography"),
+    MODERNISM("Modernism"),
     PENCIL_ILLUSTRATION("Pencil Illustration"),
     PERFORMANCE("Performance Art"),
     PHOTOREALISM("Photorealism"),
