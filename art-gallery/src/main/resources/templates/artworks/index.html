@@ -10,7 +10,10 @@
         </div>
     </div>
     <main>
-        <h2>ARTWORKS</h2>
+        <h2>
+            ARTWORKS
+            <th:block th:if="${artist}"> BY <span th:text="${artist}"></span></th:block>
+        </h2>
         <p th:unless="${artworks} and ${artworks.size()}">
             <em>No artworks to display.</em>
         </p>
@@ -32,7 +35,7 @@
                     <td th:text="${artwork.details.yearCreated}"></td>
                     <td>
                         <a th:href="${'/artworks/details/' + artwork.id}" target="_blank">
-                            <img th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.details.imageId}" width="50px" />
+                            <img th:src="${'https://drive.google.com/thumbnail?id=' + artwork.details.imageId}" width="50px" />
                         </a>
                     </td>
                 </tr>
