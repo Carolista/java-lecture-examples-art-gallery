@@ -49,7 +49,9 @@ public class ArtistController {
     // Corresponds to http://localhost:8080/artists/delete
     @GetMapping("/delete")
     public String displayDeleteArtistForm(Model model) {
-        model.addAttribute("artists", artistRepository.findAll());
+        List<Artist> artists = (List<Artist>) artistRepository.findAll();
+        artists.sort(new ArtistComparator());
+        model.addAttribute("artists", artists);
         return "artists/delete";
     }
 
