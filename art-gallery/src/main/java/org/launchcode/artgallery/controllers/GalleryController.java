@@ -15,8 +15,7 @@ public class GalleryController {
     }
 
     @GetMapping("/welcome")
-    public String displayHomePage(Model model, HttpSession session) {
-        model.addAttribute("headingText", "Welcome");
+    public String renderHomePage(Model model, HttpSession session) {
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "index";
     }

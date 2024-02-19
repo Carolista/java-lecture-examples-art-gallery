@@ -19,14 +19,16 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th></th>
+                <th>Artworks</th>
             </tr>
             </thead>
             <tr th:each="style : ${styles}">
                 <td th:text="${style.id}"></td>
                 <td th:text="${style.name}"></td>
-                <td><a th:href="${'/artworks?styleId=' + style.id}">View all artwork in this style</a></td>
-            </tr>
+                <td th:if="${style.artworks.size()}">
+                    <a th:href="${'/artworks?styleId=' + style.id}">View <span th:text="${style.artworks.size()}"></span></a>
+                </td>
+                <td th:unless="${style.artworks.size()}">None</td>            </tr>
         </table>
     </th:block>
 </main>
