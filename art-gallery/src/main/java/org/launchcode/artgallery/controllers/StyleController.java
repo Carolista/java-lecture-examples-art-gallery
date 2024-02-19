@@ -23,9 +23,9 @@ public class StyleController {
 
     // Corresponds to http://localhost:8080/styles
     @GetMapping
-    public String displayStylesPage(Model model, HttpSession session) {
+    public String renderStylesPage(Model model, HttpSession session) {
         List<Style> styles = (List<Style>) styleRepository.findAll();
-        Collections.sort(styles, new StyleComparator());
+        styles.sort(new StyleComparator());
         model.addAttribute("styles", styles);
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "/styles/index";
@@ -33,7 +33,7 @@ public class StyleController {
 
     // Corresponds to http://localhost:8080/styles/add
     @GetMapping("/add")
-    public String displayAddStyleForm(Model model, HttpSession session) {
+    public String renderAddStyleForm(Model model, HttpSession session) {
         model.addAttribute("style", new Style());
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "styles/add";

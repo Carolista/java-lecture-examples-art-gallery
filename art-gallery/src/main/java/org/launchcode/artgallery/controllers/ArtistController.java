@@ -22,7 +22,7 @@ public class ArtistController {
 
     // Corresponds to http://localhost:8080/artists
     @GetMapping
-    public String displayArtistsPage(Model model, HttpSession session) {
+    public String renderArtistsPage(Model model, HttpSession session) {
         List<Artist> artists = (List<Artist>) artistRepository.findAll();
         artists.sort(new ArtistComparator());
         model.addAttribute("artists", artists);
@@ -32,7 +32,7 @@ public class ArtistController {
 
     // Corresponds to http://localhost:8080/artists/add
     @GetMapping("/add")
-    public String displayAddArtistForm(Model model, HttpSession session) {
+    public String renderAddArtistForm(Model model, HttpSession session) {
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("artist", new Artist());
         return "artists/add";
@@ -46,6 +46,21 @@ public class ArtistController {
             artistRepository.save(artist);
             return "redirect:/artists";
         }
+    }
+
+    // Corresponds to http://localhost:8080/artists/delete
+    @GetMapping("/delete")
+    public String renderDeleteArtistForm(Model model) {
+        model.addAttribute("artists", artistRepository.findAll());
+        return "artists/delete";
+    }
+
+    @PostMapping("/delete")
+    public String processDeleteArtistForm(@RequestParam(required = false) int[] artistIds) {
+        for (int id : artistIds) {
+            artistRepository.deleteById(id);
+        }
+        return "redirect:/artists";
     }
 
 }
