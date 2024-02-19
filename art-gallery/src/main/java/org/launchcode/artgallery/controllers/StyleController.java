@@ -37,7 +37,7 @@ public class StyleController {
     }
 
     @PostMapping("/add")
-    public String renderAddStyleForm(@ModelAttribute @Valid Style style, Errors errors) {
+    public String processAddStyleForm(@ModelAttribute @Valid Style style, Errors errors) {
         if (errors.hasErrors()) {
             return "styles/add";
         } else {
