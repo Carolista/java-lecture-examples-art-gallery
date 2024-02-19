@@ -15,18 +15,17 @@
             <div class="container">
                 <div class="row">
                     <div class="form-item col-8">
-                        <label for="title">Title</label>
+                        <label th:for="title">Title</label>
                         <input th:field="${artwork.title}" />
                         <p class="error" th:errors="${artwork.title}"></p>
                     </div>
                     <div class="form-item col-4">
-                        <label for="artist">Artist</label>
+                        <label th:for="artist">Artist</label>
                         <select th:field="${artwork.artist}">
                             <option value="">Select an artist</option>
-                            <!-- th: text will use implicit toString() to get full name -->
                             <option th:each="artist : ${artists}"
                                     th:value="${artist.id}"
-                                    th:text="${artist}"
+                                    th:text="${artist.lastName + ', ' + artist.firstName}"
                             ></option>
                         </select>
                         <p class="error" th:errors="${artwork.artist}"></p>
