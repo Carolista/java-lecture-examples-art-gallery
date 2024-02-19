@@ -15,7 +15,7 @@
         <th:block th:each="artist : ${artists}">
             <label>
                 <input type="checkbox" name="artistIds" th:value="${artist.id}" />
-                <span th:text="${artist}"></span> <!-- implicitly calls toString() -->
+                <span th:text="${artist.lastName + ', ' + artist.firstName}"></span>
             </label><br />
         </th:block>
         <button class="delete" type='submit'>Delete</button>

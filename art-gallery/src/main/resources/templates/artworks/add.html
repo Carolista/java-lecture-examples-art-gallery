@@ -23,10 +23,9 @@
                         <label for="artist">Artist</label>
                         <select th:field="${artwork.artist}">
                             <option value="">Select an artist</option>
-                            <!-- th: text will use implicit toString() to get full name -->
                             <option th:each="artist : ${artists}"
                                     th:value="${artist.id}"
-                                    th:text="${artist}"
+                                    th:text="${artist.lastName + ', ' + artist.firstName}"
                             ></option>
                         </select>
                         <p class="error" th:errors="${artwork.artist}"></p>

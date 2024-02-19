@@ -74,9 +74,9 @@ public class ArtworkController {
     @GetMapping("/add")
     public String renderAddArtForm(Model model, HttpSession session) {
         List<Artist> artists = (List<Artist>) artistRepository.findAll();
-        Collections.sort(artists, new ArtistComparator());
+        artists.sort(new ArtistComparator());
         List<Style> styles = (List<Style>) styleRepository.findAll();
-        Collections.sort(styles, new StyleComparator());
+        styles.sort(new StyleComparator());
         model.addAttribute("artwork", new Artwork());
         model.addAttribute("artists", artists);
         model.addAttribute("styles", styles);
