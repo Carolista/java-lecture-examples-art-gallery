@@ -4,11 +4,15 @@ import org.launchcode.artgallery.data.StyleRepository;
 import org.launchcode.artgallery.models.Style;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.launchcode.artgallery.models.StyleComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 @RequestMapping("/styles")
@@ -20,7 +24,9 @@ public class StyleController {
     // Corresponds to http://localhost:8080/styles
     @GetMapping
     public String displayStylesPage(Model model, HttpSession session) {
-        model.addAttribute("styles", styleRepository.findAll());
+        List<Style> styles = (List<Style>) styleRepository.findAll();
+        Collections.sort(styles, new StyleComparator());
+        model.addAttribute("styles", styles);
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "/styles/index";
     }
