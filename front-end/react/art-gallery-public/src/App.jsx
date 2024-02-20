@@ -49,7 +49,7 @@ function App() {
         <Route path="/" element={ <Artworks artworks={allArtworks} /> } />
         <Route path="/artworks" element={ <Artworks artworks={allArtworks} /> } />
         <Route path="artworks/:id" element={ <Details artworks={allArtworks} /> } />
-        <Route path='*' element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>}
     </React.StrictMode>
   )
