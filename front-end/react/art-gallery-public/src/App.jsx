@@ -11,11 +11,11 @@ function App() {
   const [allArtworks, setAllArtworks] = useState({});
 
   const fetchArtworks = async () => {
-    let response = await fetch('http://localhost:8080/api/artworks');
-
-    let data = await response.json();
-
+    
     let artworks = {};
+
+    let response = await fetch('http://localhost:8080/api/artworks');
+    let data = await response.json();
 
     data.forEach(obj => {
       let artist = new Artist(obj.artist.id, obj.artist.firstName, obj.artist.lastName, obj.artist.location);
@@ -49,7 +49,7 @@ function App() {
         <Route path="/" element={ <Artworks artworks={allArtworks} /> } />
         <Route path="/artworks" element={ <Artworks artworks={allArtworks} /> } />
         <Route path="artworks/:id" element={ <Details artworks={allArtworks} /> } />
-        <Route path='*' element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>}
     </React.StrictMode>
   )

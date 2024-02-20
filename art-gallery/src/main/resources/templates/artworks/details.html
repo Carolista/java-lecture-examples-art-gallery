@@ -16,7 +16,7 @@
     <h4 th:text="${artwork.title + ', by ' + artwork.artist.toString() + ' (' + artwork.details.yearCreated + ')'}"></h4>
 
     <div class="mt-4 mb-4">
-        <img class="mx-auto d-block" th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.details.imageId}" height="500px" />
+        <img class="mx-auto d-block" th:src="${'https://drive.google.com/thumbnail?sz=h500&id=' + artwork.details.imageId}" height="500px" />
     </div>
 
     <div class="container">
