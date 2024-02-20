@@ -13,6 +13,8 @@ public class Artwork extends AbstractEntity {
     @NotBlank(message = "Title is required.")
     private String title;
 
+    // TODO: Prevent infinite loop by managing JSON reference for artist and styles
+
     @ManyToOne
     @NotNull(message = "Artist is required.")
     private Artist artist;

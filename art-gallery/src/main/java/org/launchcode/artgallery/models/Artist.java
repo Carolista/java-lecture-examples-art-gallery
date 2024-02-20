@@ -18,6 +18,7 @@ public class Artist extends AbstractEntity {
 
     private String location;
 
+    // TODO: Prevent infinite loop by indicating JSON back reference
     @OneToMany(mappedBy="artist")
     private final List<Artwork> artworks = new ArrayList<>();
 

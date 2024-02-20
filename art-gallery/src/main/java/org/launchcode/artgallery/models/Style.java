@@ -13,6 +13,7 @@ public class Style extends AbstractEntity {
     @NotBlank(message = "Name of style is required.")
     private String name;
 
+    // TODO: Prevent infinite loop by indicating JSON back reference
     @ManyToMany(mappedBy = "styles")
     private final List<Artwork> artworks = new ArrayList<>();
 
