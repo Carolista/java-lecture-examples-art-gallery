@@ -2,31 +2,32 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-<header th:replace="~{fragments :: header}"></header>
-<div id="admin-bar">
-    <div class="nav">
-        <a class="navlink" href="/artists">View List of Artists</a>
+    <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/artists">View List of Artists</a>
+            <a class="navlink" href="/artists/delete">Delete Artist</a>
+        </div>
     </div>
-</div>
-<main>
-    <h3>Add Artist</h3>
-    <form action='/artists/add' method='POST'>
-        <div class="form-item">
-            <label th:for="firstName">First Name</label>
-            <input th:field="${artist.firstName}" />
-            <p class="error" th:errors="${artist.firstName}"></p>
-        </div>
-        <div class="form-item">
-            <label th:for="lastName">Last Name</label>
-            <input th:field="${artist.lastName}" />
-            <p class="error" th:errors="${artist.lastName}"></p>
-        </div>
-        <div class="form-item">
-            <label th:for="location">Location</label>
-            <input th:field="${artist.location}" />
-        </div>
-        <button type='submit'>Add Artist</button>
-    </form>
-</main>
+    <main>
+        <h3>Add Artist</h3>
+        <form action='/artists/add' method='POST'>
+            <div class="form-item">
+                <label th:for="firstName">First Name</label>
+                <input th:field="${artist.firstName}" />
+                <p class="error" th:errors="${artist.firstName}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="lastName">Last Name</label>
+                <input th:field="${artist.lastName}" />
+                <p class="error" th:errors="${artist.lastName}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="location">Location</label>
+                <input th:field="${artist.location}" />
+            </div>
+            <button type='submit'>Add Artist</button>
+        </form>
+    </main>
 </body>
 </html>

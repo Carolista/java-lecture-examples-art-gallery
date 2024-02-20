@@ -5,25 +5,30 @@
     <header th:replace="~{fragments :: header}"></header>
     <div id="admin-bar">
         <div class="nav">
+            <a th:if="${artist} or ${styleName}" class="navlink" href="/artworks">View All Artworks</a>
             <a class="navlink" href="/artworks/add">Add Artwork</a>
             <a class="navlink" href="/artworks/delete">Delete Artwork</a>
         </div>
     </div>
     <main>
-        <h2>ARTWORKS</h2>
+        <h2>
+            ARTWORKS
+            <th:block th:if="${artist}"> BY <span th:text="${artist}"></span></th:block>
+            <th:block th:if="${styleName}"> - <span th:text="${styleName}"></span></th:block>
+        </h2>
         <p th:unless="${artworks} and ${artworks.size()}">
             <em>No artworks to display.</em>
         </p>
         <th:block th:if="${artworks} and ${artworks.size()}">
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Artist</th>
-                        <th>Year Created</th>
-                        <th>Image</th>
-                    </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Year Created</th>
+                    <th>Image</th>
+                </tr>
                 </thead>
                 <tr th:each="artwork : ${artworks}">
                     <td th:text="${artwork.id}"></td>
@@ -32,7 +37,7 @@
                     <td th:text="${artwork.details.yearCreated}"></td>
                     <td>
                         <a th:href="${'/artworks/details/' + artwork.id}" target="_blank">
-                            <img th:src="${'https://drive.google.com/uc?export=view&id=' + artwork.details.imageId}" width="50px" />
+                            <img th:src="${'https://drive.google.com/thumbnail?id=' + artwork.details.imageId}" width="50px" />
                         </a>
                     </td>
                 </tr>

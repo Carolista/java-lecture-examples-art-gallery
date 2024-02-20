@@ -2,21 +2,21 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-<header th:replace="~{fragments :: header}"></header>
-<div id="admin-bar">
-    <div class="nav">
-        <a class="navlink" href="/styles">View List of Styles</a>
-    </div>
-</div>
-<main>
-    <h3>Add Style</h3>
-    <form action='/styles/add' method='POST'>
-        <div class="form-item">
-            <label for="name">Name of Style</label>
-            <input th:field="${style.name}" />
+    <header th:replace="~{fragments :: header}"></header>
+    <div id="admin-bar">
+        <div class="nav">
+            <a class="navlink" href="/styles">View List of Styles</a>
         </div>
-        <button type='submit'>Add Style</button>
-    </form>
-</main>
+    </div>
+    <main>
+        <h3>Add Style</h3>
+        <form action='/styles/add' method='POST'>
+            <div class="form-item">
+                <label th:for="name">Name of Style</label>
+                <input th:field="${style.name}" />
+            </div>
+            <button type='submit'>Add Style</button>
+        </form>
+    </main>
 </body>
 </html>

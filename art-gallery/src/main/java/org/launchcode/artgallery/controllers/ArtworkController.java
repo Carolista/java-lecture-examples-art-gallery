@@ -31,20 +31,22 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
-    public String displayArtworksPage(@RequestParam(required = false) Integer artistId,
-                                      @RequestParam(required = false) Integer styleId,
-                                      Model model,
-                                      HttpSession session) {
+    public String renderArtworksPage(@RequestParam(required = false) Integer artistId,
+                                     @RequestParam(required = false) Integer styleId,
+                                     Model model,
+                                     HttpSession session) {
         if (artistId != null) {
             Optional<Artist> result = artistRepository.findById(artistId);
             if (result.isPresent()) {
                 Artist artist = result.get();
+                model.addAttribute("artist", artist);
                 model.addAttribute("artworks", artist.getArtworks());
             }
         } else if (styleId != null) {
             Optional<Style> result = styleRepository.findById(styleId);
             if (result.isPresent()) {
                 Style style = result.get();
+                model.addAttribute("styleName", style.getName());
                 model.addAttribute("artworks", style.getArtworks());
             }
         } else {
@@ -56,7 +58,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/details/1
     @GetMapping("/details/{artworkId}")
-    public String displayArtworkDetailsPage(@PathVariable int artworkId, Model model, HttpSession session) {
+    public String renderArtworkDetailsPage(@PathVariable int artworkId, Model model, HttpSession session) {
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         Optional<Artwork> result = artworkRepository.findById(artworkId);
         if (result.isPresent()) {
@@ -70,11 +72,11 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/add
     @GetMapping("/add")
-    public String displayAddArtForm(Model model, HttpSession session) {
+    public String renderAddArtForm(Model model, HttpSession session) {
         List<Artist> artists = (List<Artist>) artistRepository.findAll();
-        Collections.sort(artists, new ArtistComparator());
+        artists.sort(new ArtistComparator());
         List<Style> styles = (List<Style>) styleRepository.findAll();
-        Collections.sort(styles, new StyleComparator());
+        styles.sort(new StyleComparator());
         model.addAttribute("artwork", new Artwork());
         model.addAttribute("artists", artists);
         model.addAttribute("styles", styles);
@@ -90,9 +92,9 @@ public class ArtworkController {
         if (errors.hasErrors()) {
             System.out.println(errors.getAllErrors());
             List<Artist> artists = (List<Artist>) artistRepository.findAll();
-            Collections.sort(artists, new ArtistComparator());
+            artists.sort(new ArtistComparator());
             List<Style> styles = (List<Style>) styleRepository.findAll();
-            Collections.sort(styles, new StyleComparator());
+            styles.sort(new StyleComparator());
             model.addAttribute("artists", artists);
             model.addAttribute("styles", styles);
             return "artworks/add";
@@ -108,7 +110,7 @@ public class ArtworkController {
 
     // Corresponds to http://localhost:8080/artworks/delete
     @GetMapping("/delete")
-    public String displayDeleteArtForm(Model model, HttpSession session) {
+    public String renderDeleteArtForm(Model model, HttpSession session) {
         model.addAttribute("artworks", artworkRepository.findAll());
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "artworks/delete";
