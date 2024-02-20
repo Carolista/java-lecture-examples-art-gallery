@@ -1,16 +1,6 @@
-export class ArtworkDetails {
+export default class ArtworkDetails {
 
-  id: number;
-  media: string;
-  yearCreated: string;
-  description: string;
-  width: number;
-  height: number;
-  depth: number;
-  imageId: string;
-
-
-  constructor(id: number, media: string, yearCreated: string, description: string, width: number, height: number, depth: number, imageId: string) {
+  constructor(id, media, yearCreated, description, width, height, depth, imageId) {
     this.id  = id;
     this.media = media;
     this.yearCreated = yearCreated;
@@ -21,14 +11,14 @@ export class ArtworkDetails {
     this.imageId = imageId;
   }
   
-  getDimensions(): string {
+  getDimensions() {
     let widthFormatted = this.width > 0 ? this.width + '"W' : "";
     let heightFormatted = this.height > 0 ? " x " + this.height + '"H' : "";
     let depthFormatted = this.depth > 0 ? " x " + this.depth + '"D' : "";
     return widthFormatted + heightFormatted + depthFormatted;
   }
 
-  getImageURL(): string {
-    return "https://drive.google.com/uc?export=view&id=" + this.imageId;
+  getImageURL() {
+    return "https://drive.google.com/thumbnail?sz=w1000&id=" + this.imageId;
   }
 }

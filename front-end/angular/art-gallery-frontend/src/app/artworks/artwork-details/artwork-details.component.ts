@@ -27,17 +27,9 @@ export class ArtworkDetailsComponent implements OnInit {
 
   async fetchArtwork() {
 
-    let response = await fetch('http://localhost:8080/api/artworks/' + this.id, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:4200', // CORS policy 
-      }
-    });
+    let response = await fetch('http://localhost:8080/api/artworks/' + this.id);
     
     let obj: Artwork = await response.json();
-
-    console.log("Response received with payload:", obj); 
 
     let artist = new Artist(obj.artist.id, obj.artist.firstName, obj.artist.lastName, obj.artist.location);
     let styles: Style[] = [];
