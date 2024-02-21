@@ -21,7 +21,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
     // Allow certain pages and static resources to be seen by the public (not logged in)
     private static final List<String> whitelist = Arrays.asList("/welcome", "/register", "/login", "/css", "/images");
 
-    // Check all pages and static resources against blacklist
+    // Check all pages and static resources against whitelist
     private static boolean isWhitelisted(String path) {
         for (String pathRoot : whitelist) {
             if (path.equals("/") || path.startsWith(pathRoot)) {
